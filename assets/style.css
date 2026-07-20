@@ -24,22 +24,24 @@ br.sp{display:none}
   br.sp{display:inline}
 }
 
-/* 記事一覧 */
-.intro{margin:2rem 0;font-size:1.02rem}
-.post-list{list-style:none;padding:0;margin:0 0 3rem}
-.post-list li{display:flex;gap:1rem;align-items:flex-start;padding:1.2rem 0;border-bottom:1px solid #EAF3FA}
-.post-list .post-thumb{flex:0 0 150px}
-.post-list .post-thumb img{width:150px;height:auto;border-radius:10px;border:1px solid #EAF3FA;display:block}
-.post-list .post-info{flex:1;min-width:0}
-@media (max-width:480px){
-  .post-list li{flex-direction:column;gap:.6rem}
-  .post-list .post-thumb{flex:none;width:100%}
-  .post-list .post-thumb img{width:100%}
-}
-.post-list .post-date{font-size:.8rem;color:#5c7a99;display:block}
-.post-list .post-link{font-size:1.15rem;font-weight:700;color:#1E7CBD;text-decoration:none}
-.post-list .post-link:hover{text-decoration:underline}
-.post-list .post-desc{margin:.4rem 0 0;font-size:.92rem;color:#3d5a78}
+/* 記事一覧（トップページと同じカードデザイン・3列） */
+.wrap.wide{max-width:1120px}
+.intro{margin:2rem 0;font-size:1.02rem;text-align:center}
+.post-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin:0 0 3rem}
+@media (max-width:900px){.post-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.post-grid{grid-template-columns:1fr}}
+.post-card{position:relative;display:flex;flex-direction:column;background:#fff;border:1px solid #E6EEF5;border-radius:18px;overflow:hidden;text-decoration:none;color:#14395C;box-shadow:0 6px 18px rgba(20,57,92,.06);transition:transform .25s,box-shadow .25s}
+.post-card::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#1B6FB0,#2E9BD6);z-index:1}
+.post-card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(27,111,176,.18)}
+.post-card-thumb{display:block;aspect-ratio:16/9;overflow:hidden;background:#EAF3FA}
+.post-card-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s}
+.post-card:hover .post-card-thumb img{transform:scale(1.05)}
+.post-card-body{display:flex;flex-direction:column;gap:.45rem;padding:1.1rem 1.2rem 1.25rem;flex:1}
+.post-card-date{font-family:'Inter','Zen Kaku Gothic New',sans-serif;font-size:.74rem;font-weight:600;letter-spacing:.14em;color:#8AA1B8}
+.post-card-title{font-size:1.02rem;font-weight:900;line-height:1.55}
+.post-card:hover .post-card-title{color:#1B6FB0}
+.post-card-desc{font-size:.88rem;color:#3d5a78;line-height:1.8;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.post-card-more{margin-top:auto;padding-top:.6rem;display:inline-flex;align-items:center;gap:.3rem;font-size:.85rem;font-weight:700;color:#1B6FB0}
 
 /* 記事ページ */
 .post{margin-top:2.2rem}

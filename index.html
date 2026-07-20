@@ -1,22 +1,26 @@
 ---
 layout: default
+wide: true
 ---
 <div class="intro">
   <p>リフォーム・建築の一人親方、小さな工務店の社長さんへ。<br>
   チラシと地域密着で、地元から仕事をもらう方法を、むずかしい言葉を使わずに書いていきます。毎日1本ずつ増えます。</p>
 </div>
-<ul class="post-list">
+<div class="post-grid">
   {% for post in site.posts %}
-  <li>
+  <a class="post-card" href="{{ post.url | relative_url }}">
     {% if post.image %}
-    <a class="post-thumb" href="{{ post.url | relative_url }}"><img src="{{ post.image | relative_url }}" alt="" loading="lazy"></a>
+    <span class="post-card-thumb"><img src="{{ post.image | relative_url }}" alt="" loading="lazy"></span>
     {% endif %}
-    <div class="post-info">
-      <span class="post-date">{{ post.date | date: "%Y年%-m月%-d日" }}</span>
-      <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
-      {% if post.description %}<p class="post-desc">{{ post.description }}</p>{% endif %}
-    </div>
-  </li>
+    <span class="post-card-body">
+      <span class="post-card-date">{{ post.date | date: "%Y年%-m月%-d日" }}</span>
+      <span class="post-card-title">{{ post.title }}</span>
+      {% if post.description %}<span class="post-card-desc">{{ post.description }}</span>{% endif %}
+      <span class="post-card-more">記事を読む
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+      </span>
+    </span>
+  </a>
   {% endfor %}
-</ul>
+</div>
 {% include cta.html %}
