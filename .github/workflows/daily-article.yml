@@ -25,7 +25,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: ライブラリを入れる
-        run: pip install anthropic pillow
+        run: pip install anthropic pillow cairosvg
       - name: 記事を1本作る
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
