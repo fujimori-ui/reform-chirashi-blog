@@ -115,6 +115,51 @@ def make(title, slug):
     return out
 
 
+ILLUST_DIR = os.path.join(HERE, "assets", "images", "illust")
+
+
+def make_from_illust(illust_name, slug, max_h=440, max_w=760):
+    """購入済みの手描きタッチイラストを、ブランド背景(白+風の流線+青帯)に合成する。"""
+    img = Image.new("RGB", (W, H), "white")
+    d = ImageDraw.Draw(img)
+
+    # 背景: サイトと同じ「風の流線」
+    draw_wave(d, 90, 34, 900, LIGHT, 5, phase=0.5)
+    draw_wave(d, 150, 44, 1100, PALE, 7, phase=2.2)
+    draw_wave(d, 55, 26, 760, (166, 207, 234), 4, phase=4.0)
+    draw_wave(d, 560, 40, 1000, PALE, 6, phase=1.2)
+
+    # イラストの後ろにうす青の円(サイトのカード風のやわらかさ)
+    d.ellipse([W // 2 - 265, 80, W // 2 + 265, 610], fill=PALE)
+    draw_wave(d, 560, 40, 1000, PALE, 6, phase=1.2)
+
+    # イラスト本体(中央)
+    illust = Image.open(os.path.join(ILLUST_DIR, f"{illust_name}.png")).convert("RGBA")
+    scale = min(max_h / illust.height, max_w / illust.width)
+    illust = illust.resize((round(illust.width * scale), round(illust.height * scale)), Image.LANCZOS)
+    x = (W - illust.width) // 2
+    y = 78 + (500 - illust.height) // 2
+    img.paste(illust, (x, y), illust)
+
+    # 下辺: ブランドのグラデーション帯(青)
+    bar_h = 16
+    for px in range(W):
+        t = px / W
+        if t < 0.6:
+            u = t / 0.6
+            c = tuple(round(BLUE[i] + (SKY[i] - BLUE[i]) * u) for i in range(3))
+        else:
+            u = (t - 0.6) / 0.4
+            c = tuple(round(SKY[i] + ((111, 194, 236)[i] - SKY[i]) * u) for i in range(3))
+        d.line([(px, H - bar_h), (px, H)], fill=c)
+
+    os.makedirs(OUT_DIR, exist_ok=True)
+    out = os.path.join(OUT_DIR, f"{slug}.png")
+    img.save(out, optimize=True)
+    print(f"画像を保存しました: {os.path.relpath(out, HERE)}")
+    return out
+
+
 if __name__ == "__main__":
     if len(sys.argv) != 3:
         sys.exit("使い方: python make_eyecatch.py \"記事タイトル\" スラッグ名")

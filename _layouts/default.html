@@ -11,23 +11,48 @@
 </head>
 <body>
 <header class="site-header">
-  <div class="wrap">
-    <a class="site-title" href="{{ '/' | relative_url }}">小さな工務店の<br class="sp">集客ノート</a>
-    <p class="site-sub">JibuLabo（ジブラボ）のブログ</p>
+  <div class="hwrap">
+    <a class="brand" href="https://jibulabo.jp/">
+      <span class="brand-name">JibuLabo</span>
+      <span class="brand-sub">経営の参謀</span>
+    </a>
     <nav class="site-nav">
-      <a href="{{ '/' | relative_url }}">記事一覧</a>
-      <a href="https://jibulabo.jp/">ジブラボのトップへ</a>
-      <a href="https://reform-chirashi.jp/" target="_blank" rel="noopener">チラシ集客とは</a>
+      <a class="navlink" href="{{ '/' | relative_url }}">記事一覧</a>
+      <a class="navlink" href="https://jibulabo.jp/">ジブラボのトップへ</a>
+      <a class="navlink" href="https://reform-chirashi.jp/" target="_blank" rel="noopener">チラシ集客とは</a>
+      <a class="header-cta" href="https://lin.ee/trP0HDw" target="_blank" rel="noopener">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M12 3C6.9 3 3 6.4 3 10.5c0 3.7 3.2 6.8 7.5 7.4.3.1.6.3.6.6l.3 1.8c.1.4.5.5.8.2l2.4-2.9c.1-.2.3-.2.5-.3C18.8 16.2 21 13.6 21 10.5 21 6.4 17.1 3 12 3Z" fill="currentColor"/></svg>
+        LINEで相談する
+      </a>
     </nav>
+    <button class="burger" type="button" aria-label="メニュー" onclick="document.getElementById('mobile-menu').classList.toggle('open')">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#14395C" stroke-width="2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="{{ '/' | relative_url }}">記事一覧</a>
+    <a href="https://jibulabo.jp/">ジブラボのトップへ</a>
+    <a href="https://reform-chirashi.jp/" target="_blank" rel="noopener">チラシ集客とは</a>
+    <a href="https://lin.ee/trP0HDw" target="_blank" rel="noopener">LINEで相談する</a>
   </div>
 </header>
+<div class="blog-band">
+  <div class="wrap wide">
+    <a class="blog-band-title" href="{{ '/' | relative_url }}">小さな工務店の<br class="sp">集客ノート</a>
+    <p class="blog-band-sub">JibuLabo（ジブラボ）のブログ ｜ 毎日1本ずつ増えます</p>
+  </div>
+</div>
 <main class="wrap{% if page.wide %} wide{% endif %}">
 {{ content }}
 <p class="home-link"><a class="btn btn-home" href="https://jibulabo.jp/">🏠 ジブラボのトップページへもどる</a></p>
 </main>
 <footer class="site-footer">
-  <div class="wrap">
-    <p>小さな工務店の集客ノート ｜ 運営: <a href="https://jibulabo.jp/" target="_blank" rel="noopener">JibuLabo（ジブラボ）</a> — 小さな工務店の、経営の参謀</p>
+  <div class="fwrap">
+    <div class="fbrand">
+      <span class="fbrand-name">JibuLabo</span>
+      <span class="fbrand-sub">小さな工務店の、経営の参謀。</span>
+    </div>
+    <p class="fcopy">© 2026 JibuLabo Co., Ltd.</p>
   </div>
 </footer>
 </body>
