@@ -91,7 +91,11 @@ def generate(topic, titles):
         system=SYSTEM_PROMPT,
         messages=[{"role": "user", "content": user_prompt}],
     )
-    return resp.content[0].text.strip()
+    # 応答には本文以外のブロック(思考メモ等)が混ざることがあるので、本文だけ取り出す
+    text = "".join(b.text for b in resp.content if getattr(b, "type", "") == "text")
+    if not text.strip():
+        raise SystemExit(f"エラー: 本文ブロックが空でした。stop_reason={resp.stop_reason}")
+    return text.strip()
 
 
 def parse_output(raw):
