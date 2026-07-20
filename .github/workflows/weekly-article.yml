@@ -1,0 +1,48 @@
+name: weekly-article
+
+on:
+  # 毎週月曜の朝(6:00 JST=前日21:00 UTC)に記事を1本追加する。
+  # ブログは多少遅れても問題ないので、GitHub内蔵cronの遅延は許容する。
+  schedule:
+    - cron: "0 21 * * 0"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "保存せず記事を表示するだけの場合は true"
+        required: false
+        default: "false"
+
+concurrency:
+  group: weekly-article
+
+permissions:
+  contents: write
+
+jobs:
+  write-article:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: ライブラリを入れる
+        run: pip install anthropic
+      - name: 記事を1本作る
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            python generate_article.py --dry-run
+          else
+            python generate_article.py
+          fi
+      - name: 記事をブログに反映する(push)
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add _posts state.json
+          git diff --cached --quiet || git commit -m "Add weekly article"
+          git pull --rebase
+          git push

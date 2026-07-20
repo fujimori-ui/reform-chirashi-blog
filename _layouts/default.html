@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{% seo %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="site-title" href="{{ '/' | relative_url }}">小さな工務店の<br class="sp">集客ノート</a>
+    <p class="site-sub">JibuLabo（ジブラボ）のブログ</p>
+    <nav class="site-nav">
+      <a href="{{ '/' | relative_url }}">記事一覧</a>
+      <a href="https://jibulabo.jp/" target="_blank" rel="noopener">ジブラボについて</a>
+      <a href="https://reform-chirashi.jp/" target="_blank" rel="noopener">チラシ集客とは</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+{{ content }}
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>小さな工務店の集客ノート ｜ 運営: <a href="https://jibulabo.jp/" target="_blank" rel="noopener">JibuLabo（ジブラボ）</a> — 小さな工務店の、経営の参謀</p>
+  </div>
+</footer>
+</body>
+</html>

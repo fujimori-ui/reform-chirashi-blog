@@ -1,0 +1,62 @@
+/* ジブラボ(jibulabo.jp)と同じ配色・フォントに合わせたデザイン */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  color:#14395C;
+  background:#ffffff;
+  line-height:1.9;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:#BFDDF2}
+.wrap{max-width:44rem;margin:0 auto;padding:0 1.2rem}
+
+/* ヘッダー */
+.site-header{background:#EAF3FA;padding:2rem 0 1.4rem;border-bottom:3px solid #1E7CBD}
+.site-title{font-size:1.7rem;font-weight:900;color:#14395C;text-decoration:none;letter-spacing:.02em}
+.site-sub{margin:.3rem 0 1rem;font-size:.85rem;color:#1E7CBD;font-weight:700}
+.site-nav a{color:#14395C;font-size:.9rem;font-weight:700;text-decoration:none;margin-right:1.2rem;border-bottom:2px solid #BFDDF2}
+.site-nav a:hover{border-bottom-color:#1E7CBD}
+br.sp{display:none}
+@media (max-width:480px){
+  .site-title{font-size:1.4rem}
+  br.sp{display:inline}
+}
+
+/* 記事一覧 */
+.intro{margin:2rem 0;font-size:1.02rem}
+.post-list{list-style:none;padding:0;margin:0 0 3rem}
+.post-list li{padding:1.2rem 0;border-bottom:1px solid #EAF3FA}
+.post-list .post-date{font-size:.8rem;color:#5c7a99;display:block}
+.post-list .post-link{font-size:1.15rem;font-weight:700;color:#1E7CBD;text-decoration:none}
+.post-list .post-link:hover{text-decoration:underline}
+.post-list .post-desc{margin:.4rem 0 0;font-size:.92rem;color:#3d5a78}
+
+/* 記事ページ */
+.post{margin-top:2.2rem}
+.post-date{font-size:.85rem;color:#5c7a99}
+.post-title{font-size:1.55rem;font-weight:900;line-height:1.5;margin:.4rem 0 1.6rem}
+.post-body h2{font-size:1.2rem;font-weight:900;margin:2.2rem 0 .8rem;padding-left:.7rem;border-left:5px solid #1E7CBD}
+.post-body h3{font-size:1.05rem;font-weight:700;margin:1.8rem 0 .6rem}
+.post-body p{margin:1rem 0}
+.post-body strong{background:linear-gradient(transparent 65%,#BFDDF2 65%)}
+.post-body ul,.post-body ol{padding-left:1.4rem}
+.post-body blockquote{margin:1.2rem 0;padding:.8rem 1rem;background:#EAF3FA;border-radius:8px}
+.back-link{margin:2.5rem 0 4rem}
+.back-link a{color:#1E7CBD;font-weight:700;text-decoration:none}
+
+/* CTA(記事下の案内) */
+.cta{background:#EAF3FA;border-radius:14px;padding:1.6rem 1.4rem;margin:3rem 0 2rem}
+.cta-title{font-size:1.15rem;font-weight:900;margin:0 0 .6rem;color:#14395C}
+.cta p{margin:.5rem 0;font-size:.95rem}
+.cta-buttons{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1rem}
+.btn{display:inline-block;padding:.75rem 1.3rem;border-radius:999px;font-weight:700;font-size:.95rem;text-decoration:none;text-align:center}
+.btn-main{background:#1E7CBD;color:#fff}
+.btn-main:hover{background:#14395C}
+.btn-sub{background:#fff;color:#1E7CBD;border:2px solid #1E7CBD}
+.btn-sub:hover{background:#BFDDF2}
+
+/* フッター */
+.site-footer{background:#14395C;color:#fff;margin-top:3rem;padding:1.6rem 0;font-size:.85rem}
+.site-footer a{color:#BFDDF2}
