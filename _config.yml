@@ -13,5 +13,10 @@ plugins:
 exclude:
   - README.md
   - generate_article.py
+  - make_eyecatch.py
+  - deploy_ftp.py
   - topics.json
   - state.json
+  - fonts
+  - Gemfile
+  - Gemfile.lock

@@ -147,6 +147,7 @@ def main():
         "layout: post\n"
         f'title: "{title.replace(chr(34), "”")}"\n'
         f'description: "{desc.replace(chr(34), "”")}"\n'
+        f"image: /assets/images/eyecatch/{topic['slug']}.png\n"
         "---\n\n"
     )
     content = front + body + "\n"
@@ -160,6 +161,8 @@ def main():
     os.makedirs(POSTS_DIR, exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
         f.write(content)
+    import make_eyecatch
+    make_eyecatch.make(title, topic["slug"])
     state["next_topic"] = idx + 1
     save_json(STATE_PATH, state)
     print(f"記事を保存しました: _posts/{filename}")

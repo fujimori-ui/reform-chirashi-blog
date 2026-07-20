@@ -2,6 +2,7 @@
 layout: post
 title: "チラシで反響が出ないとき、最初に見直すべきたった1つのこと"
 description: "デザインでも枚数でもありません。チラシの反響を分けるのは「誰に、何屋として覚えてもらうか」。小さな工務店のための見直し方を解説します。"
+image: /assets/images/eyecatch/chirashi-hankyo-denai.png
 ---
 
 「チラシを配ってみたけど、電話が1本も鳴らなかった」

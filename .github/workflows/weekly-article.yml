@@ -27,7 +27,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: ライブラリを入れる
-        run: pip install anthropic
+        run: pip install anthropic pillow
       - name: 記事を1本作る
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
@@ -42,7 +42,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add _posts state.json
+          git add _posts state.json assets/images
           git diff --cached --quiet || git commit -m "Add weekly article"
           git pull --rebase
           git push
