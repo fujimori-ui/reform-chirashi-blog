@@ -1,0 +1,46 @@
+name: deploy
+
+# ブログをビルドして jibulabo.jp/blog/ (エックスサーバー)へアップロードする。
+# 起動タイミング:
+#  - mainにpushしたとき(記事や設定を変えたとき)
+#  - weekly-article(毎週の自動記事)の完了後(workflow_callで呼ばれる)
+#  - 手動実行(workflow_dispatch)
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  workflow_call:
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-upload:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main  # weekly-articleから呼ばれた場合も最新の記事を含める
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.2"
+      - name: Jekyllを入れる
+        run: |
+          gem install bundler
+          bundle install
+      - name: ブログをビルドする
+        run: bundle exec jekyll build
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: エックスサーバーへアップロードする
+        env:
+          FTP_HOST: sv17104.xserver.jp
+          FTP_USER: jibulabo
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_DIR: /jibulabo.jp/public_html/blog
+        run: python deploy_ftp.py

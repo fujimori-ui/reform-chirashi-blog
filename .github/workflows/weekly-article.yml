@@ -46,3 +46,11 @@ jobs:
           git diff --cached --quiet || git commit -m "Add weekly article"
           git pull --rebase
           git push
+
+  # 記事を追加したら jibulabo.jp/blog/ へ反映する。
+  # (GITHUB_TOKENによるpushではpushトリガーが発火しないため、ここから明示的に呼ぶ)
+  deploy:
+    needs: write-article
+    if: ${{ github.event.inputs.dry_run != 'true' }}
+    uses: ./.github/workflows/deploy.yml
+    secrets: inherit
