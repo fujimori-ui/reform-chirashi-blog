@@ -1,10 +1,8 @@
 name: daily-article
 
 on:
-  # 毎日朝(6:00 JST=前日21:00 UTC)に記事を1本追加する。
-  # ブログは多少遅れても問題ないので、GitHub内蔵cronの遅延は許容する。
-  schedule:
-    - cron: "0 21 * * *"
+  # 起動はclaude.aiの定期ルーティン(毎朝5:40 JST)からworkflow_dispatchで行う
+  # (GitHub内蔵cronは1〜3時間遅延するため2026-07-21に廃止。6時までに公開するための変更)
   workflow_dispatch:
     inputs:
       dry_run:
