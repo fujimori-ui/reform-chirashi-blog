@@ -40,7 +40,7 @@ jobs:
       - name: エックスサーバーへアップロードする
         env:
           FTP_HOST: sv17104.xserver.jp
-          FTP_USER: jibulabo
+          FTP_USER: jibulabo2026
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
           FTP_DIR: /jibulabo.jp/public_html/blog
         run: python deploy_ftp.py

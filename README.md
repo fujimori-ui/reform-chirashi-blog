@@ -5,7 +5,7 @@ JibuLabo（ジブラボ）のブログ。チラシと地域密着で地元から
 - 公開URL: https://jibulabo.jp/blog/
 - 毎週月曜の朝、`weekly-article` ワークフローがClaudeで記事を1本作って自動追加する
 - 記事追加やmainへのpushのたびに `deploy` ワークフローがビルド→FTPSでエックスサーバーの `/jibulabo.jp/public_html/blog/` へ全ファイル上書きアップロードする(削除はしないので、記事を消したらサーバー側も手で消すこと)
-- FTPパスワードはリポジトリのSecret `FTP_PASSWORD` に登録(ホスト sv17104.xserver.jp / ユーザー jibulabo はdeploy.ymlに直書き)
+- FTPパスワードはリポジトリのSecret `FTP_PASSWORD` に登録(ホスト sv17104.xserver.jp / ユーザー jibulabo2026 はdeploy.ymlに直書き)
 - ネタ帳は `topics.json`(順番に消化、進行は `state.json`)。ネタを足すときは topics.json に追記するだけ
 - 記事は `_posts/*.md`。手で書いた記事もここに置けばそのまま公開される
 - 記事下の案内(チラシ集客LP・書籍プレゼント)は `_includes/cta.html` で一括変更
