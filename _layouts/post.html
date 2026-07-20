@@ -8,6 +8,15 @@ layout: default
   <div class="post-body">
     {{ content }}
   </div>
+  {% if page.video %}
+  <div class="post-video">
+    <p class="post-video-title">▶ この内容は動画でもくわしく解説しています</p>
+    <div class="post-video-frame">
+      <iframe src="https://www.youtube-nocookie.com/embed/{{ page.video }}" title="解説動画" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+    </div>
+    <p class="post-video-link"><a href="https://www.youtube.com/@5000reform" target="_blank" rel="noopener">YouTube「5000世帯からはじめるリフォーム経営塾」を見る →</a></p>
+  </div>
+  {% endif %}
 </article>
 {% include cta.html %}
 <p class="back-link"><a href="{{ '/' | relative_url }}">← 記事一覧にもどる</a></p>

@@ -3,6 +3,7 @@ layout: post
 title: "相見積もりで値段勝負にしない。小さな工務店の伝え方"
 description: "「他社より安く」を続けると経営は苦しくなるばかり。相見積もりの場面で、価格ではなく安心で選んでもらうための具体的な伝え方を紹介します。"
 image: /assets/images/eyecatch/aimitsumori.png
+video: KpyVw5r7Ur4
 ---
 
 「他社さんはもっと安かったんだけど」
