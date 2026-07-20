@@ -4,7 +4,7 @@ permalink: /latest.json
 ---
 {
   "posts": [
-    {% for post in site.posts limit: 5 %}
+    {% for post in site.posts limit: 6 %}
     {
       "title": {{ post.title | jsonify }},
       "url": "{{ post.url | relative_url }}",
