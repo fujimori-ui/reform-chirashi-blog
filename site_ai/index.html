@@ -55,8 +55,10 @@ h2{font-weight:900;font-size:clamp(24px,3.6vw,40px);line-height:1.4;color:#0ABAB
 /* 主要サービス */
 .packs{background:#F1FAF9;position:relative;overflow:hidden}
 .pack-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:18px}
-.pack{position:relative;background:#fff;border:1px solid #DFF0EE;border-radius:22px;padding:clamp(24px,3vw,32px);display:flex;flex-direction:column;overflow:hidden}
+.pack{--pp:clamp(24px,3vw,32px);position:relative;background:#fff;border:1px solid #DFF0EE;border-radius:22px;padding:var(--pp);display:flex;flex-direction:column;overflow:hidden}
 .pack::before{content:"";position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,#0ABAB5,#3ECFC7)}
+.pack .photo{margin:calc(var(--pp)*-1 + 5px) calc(var(--pp)*-1) 18px}
+.pack .photo img{width:100%;aspect-ratio:3/2;object-fit:cover;display:block}
 .pack-no{display:inline-flex;align-self:flex-start;align-items:center;font-family:'Inter','Zen Kaku Gothic New',sans-serif;font-weight:800;font-size:12.5px;letter-spacing:.06em;color:#fff;background:linear-gradient(135deg,#0ABAB5,#3ECFC7);border-radius:10px;padding:5px 12px;margin:0 0 12px}
 .pack h3{font-weight:900;font-size:clamp(17px,2vw,20px);line-height:1.5;margin:0 0 12px;color:#123F3C}
 .pack .gone{display:flex;flex-direction:column;gap:2px;background:#F1FAF9;border:1px solid #DCEFEC;border-radius:12px;padding:10px 14px;margin:0 0 14px;font-size:12.5px;font-weight:700;line-height:1.8}
@@ -72,18 +74,27 @@ h2{font-weight:900;font-size:clamp(24px,3.6vw,40px);line-height:1.4;color:#0ABAB
 .feature-item h4{font-weight:900;font-size:15.5px;margin:0 0 8px;color:#0A8F8A}
 .feature-item p{font-size:14px;font-weight:500;line-height:1.95;margin:0;color:#3D5B58}
 .feature-item p small{display:block;font-size:12px;color:#6D8B88;margin-top:6px;line-height:1.8}
+.zoom-banner{position:relative;margin-top:18px;border-radius:20px;overflow:hidden;box-shadow:0 14px 32px rgba(10,186,181,.14)}
+.zoom-banner img{width:100%;height:clamp(220px,32vw,340px);object-fit:cover;display:block}
+.zoom-banner .zb-txt{position:absolute;left:0;right:0;bottom:0;margin:0;padding:26px 28px 20px;background:linear-gradient(transparent,rgba(18,63,60,.82));color:#fff;font-weight:900;font-size:clamp(14px,1.9vw,18px);line-height:1.8}
 
 /* モニター募集 */
 .monitor{background:#F1FAF9}
 .monitor-box{background:#fff;border:2px dashed #3ECFC7;border-radius:20px;padding:clamp(24px,3.4vw,40px)}
 .monitor-box h3{font-weight:900;font-size:clamp(18px,2.2vw,24px);margin:0 0 10px;color:#123F3C}
 .monitor-box h3 span{background:linear-gradient(transparent 72%,rgba(62,207,199,.4) 72%,rgba(62,207,199,.4) 94%,transparent 94%);padding:0 3px}
+.monitor-box{display:flex;gap:clamp(18px,3vw,32px);align-items:center}
+.monitor-box .m-txt{flex:1;min-width:0}
+.monitor-box .m-photo{width:36%;flex-shrink:0;border-radius:16px;overflow:hidden}
+.monitor-box .m-photo img{width:100%;aspect-ratio:3/2;object-fit:cover;display:block}
+@media (max-width:760px){.monitor-box{flex-direction:column}.monitor-box .m-photo{width:100%}}
 .monitor-box p{font-size:14.5px;font-weight:500;line-height:2;margin:0;max-width:46em;color:#3D5B58}
 
 /* CTA */
 .cta-sec{background:#fff;text-align:center}
 .cta-box{background:#F1FAF9;border:1px solid #DFF0EE;border-radius:26px;padding:clamp(34px,5vw,56px);box-shadow:0 18px 40px rgba(10,186,181,.10)}
 .cta-box h2{margin-bottom:10px}
+.cta-face{width:104px;height:104px;border-radius:50%;object-fit:cover;margin:0 auto 16px;display:block;border:4px solid #C2E9E6;box-shadow:0 10px 24px rgba(10,186,181,.18)}
 .cta-box p{max-width:42em;margin:0 auto 26px;font-weight:500;font-size:clamp(14px,1.6vw,16px)}
 
 /* 注意書き */
@@ -129,7 +140,7 @@ h2{font-weight:900;font-size:clamp(24px,3.6vw,40px);line-height:1.4;color:#0ABAB
     <p class="btn-note">「いま一番時間を取られている作業」を一言送るだけ。営業のご連絡はしません。</p>
     </div>
     <div class="hero-visual">
-      <img class="hero-img" src="keitora.jpg" alt="現場へ向かう工務店の軽トラック">
+      <img class="hero-img" src="hero_ai_staff.jpg" alt="現場を確認する工務店のスタッフ">
     </div>
     </div>
   </div>
@@ -144,6 +155,7 @@ h2{font-weight:900;font-size:clamp(24px,3.6vw,40px);line-height:1.4;color:#0ABAB
 
     <div class="pack-grid">
       <div class="pack">
+        <div class="photo"><img src="svc_mitsumori.jpg" alt="見積書と電卓" loading="lazy"></div>
         <span class="pack-no">No.1</span>
         <h3>見積たたき台の作成</h3>
         <div class="gone">
@@ -153,6 +165,7 @@ h2{font-weight:900;font-size:clamp(24px,3.6vw,40px);line-height:1.4;color:#0ABAB
         <p class="desc">現場写真・メモを入れるだけで、<b>自社Excel書式の見積たたき台（下書き）が数分で完成</b>。金額や項目の最終チェックは社長が行い、直したいところだけ手を入れる形です。</p>
       </div>
       <div class="pack">
+        <div class="photo"><img src="svc_teiansho.jpg" alt="住宅模型と図面" loading="lazy"></div>
         <span class="pack-no">No.2</span>
         <h3>見積 → 提案書たたき台の作成</h3>
         <div class="gone">
@@ -162,6 +175,7 @@ h2{font-weight:900;font-size:clamp(24px,3.6vw,40px);line-height:1.4;color:#0ABAB
         <p class="desc">見積PDFを入れるだけで、<b>ロゴ入りの提案書の下書きを自動作成</b>（ページ構成は御社の営業スタイルに合わせて調整します）。</p>
       </div>
       <div class="pack">
+        <div class="photo"><img src="svc_sns.jpg" alt="SNSアプリが並んだスマートフォン" loading="lazy"></div>
         <span class="pack-no">No.3</span>
         <h3>WEB・SNS発信の下書き自動作成<br><small style="font-weight:700;font-size:12.5px;color:#3ECFC7">ブログ・Google・X・Threads・Instagram</small></h3>
         <div class="gone">
@@ -205,6 +219,10 @@ h2{font-weight:900;font-size:clamp(24px,3.6vw,40px);line-height:1.4;color:#0ABAB
         <p>各SNSの仕様は変わることがあるため、納品時に「仕様変更時の対応範囲」を書面でお渡しします。</p>
       </div>
     </div>
+    <div class="zoom-banner">
+      <img src="spt_zoom.jpg" alt="Zoomでの操作練習のイメージ" loading="lazy">
+      <p class="zb-txt">納品のときは、Zoomをつなぎながら一緒に操作練習。<br>「ダブルクリックするだけ」になるまで、おそばで伴走します。</p>
+    </div>
   </div>
 </section>
 
@@ -214,8 +232,11 @@ h2{font-weight:900;font-size:clamp(24px,3.6vw,40px);line-height:1.4;color:#0ABAB
     <p class="sec-label">MONITOR</p>
     <h2>導入イメージ</h2>
     <div class="monitor-box">
-      <h3>🎁 <span>モニター企業募集中（特別価格）</span></h3>
-      <p>いま、導入事例づくりにご協力いただけるモニター企業さまを募集しています。通常より特別価格でご案内しますので、「うちの場合はどうなる？」という段階でも、お気軽にご相談ください。</p>
+      <div class="m-txt">
+        <h3>🎁 <span>モニター企業募集中（特別価格）</span></h3>
+        <p>いま、導入事例づくりにご協力いただけるモニター企業さまを募集しています。通常より特別価格でご案内しますので、「うちの場合はどうなる？」という段階でも、お気軽にご相談ください。</p>
+      </div>
+      <div class="m-photo"><img src="monitor_team.jpg" alt="現場で談笑する職人たち" loading="lazy"></div>
     </div>
   </div>
 </section>
@@ -224,6 +245,7 @@ h2{font-weight:900;font-size:clamp(24px,3.6vw,40px);line-height:1.4;color:#0ABAB
 <section class="cta-sec">
   <div class="wrap">
     <div class="cta-box">
+      <img class="cta-face" src="cta_denwa.jpg" alt="電話で相談する職人" loading="lazy">
       <p class="sec-label">FREE CHECK</p>
       <h2>まずは無料相談から</h2>
       <p>今いちばん困っている作業を教えてください。それがAIでどこまで軽くなるか、<b>御社の実際の書式・写真を使ってその場でお見せします</b>。</p>
