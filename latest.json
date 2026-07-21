@@ -9,6 +9,7 @@ permalink: /latest.json
       "title": {{ post.title | jsonify }},
       "url": "{{ post.url | relative_url }}",
       "date": "{{ post.date | date: "%Y-%m-%d" }}",
+      "tags": {{ post.tags | jsonify }},
       "description": {{ post.description | default: "" | jsonify }},
       "image": "{% if post.image %}{{ post.image | relative_url }}{% endif %}"
     }{% unless forloop.last %},{% endunless %}
