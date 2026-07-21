@@ -1,0 +1,36 @@
+name: upload-top
+
+# トップページ(site_top/)を jibulabo.jp/ へアップロードする。
+# 起動タイミング:
+#  - site_top/ を変更してpushしたとき
+#  - 手動実行(workflow_dispatch)
+on:
+  push:
+    branches: [main]
+    paths:
+      - "site_top/**"
+  workflow_dispatch:
+
+concurrency:
+  group: upload-top
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: エックスサーバーへアップロードする
+        env:
+          FTP_HOST: sv17104.xserver.jp
+          FTP_USER: jibulabo2026
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_TARGET_DIR: /jibulabo.jp/public_html
+          LOCAL_DIR: site_top
+        run: python upload_ai.py

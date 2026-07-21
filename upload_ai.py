@@ -8,7 +8,8 @@ import os
 from ftplib import FTP_TLS, error_perm
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-LOCAL_DIR = os.path.join(HERE, "site_ai")
+# LOCAL_DIR環境変数で対象フォルダを切り替えられる(既定=site_ai、トップページはsite_top)
+LOCAL_DIR = os.path.join(HERE, os.environ.get("LOCAL_DIR", "site_ai"))
 
 
 def ensure_dir(ftp, path):
