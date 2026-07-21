@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
 </head>
-<body>
+<body{% if page.theme %} class="theme-{{ page.theme }}"{% endif %}>
 <header class="site-header">
   <div class="hwrap">
     <a class="brand" href="https://jibulabo.jp/">
@@ -40,8 +40,8 @@
 </header>
 <div class="blog-band">
   <div class="wrap wide">
-    <a class="blog-band-title" href="{{ '/' | relative_url }}">小さな工務店の<br class="sp">集客ノート</a>
-    <p class="blog-band-sub">JibuLabo（ジブラボ）のブログ ｜ 毎日1本ずつ増えます</p>
+    <a class="blog-band-title" href="{% if page.band_url %}{{ page.band_url | relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}">{% if page.band_title %}{{ page.band_title }}{% else %}小さな工務店の<br class="sp">集客ノート{% endif %}</a>
+    <p class="blog-band-sub">{% if page.band_sub %}{{ page.band_sub }}{% else %}JibuLabo（ジブラボ）のブログ ｜ 毎日1本ずつ増えます{% endif %}</p>
   </div>
 </div>
 <main class="wrap{% if page.wide %} wide{% endif %}">

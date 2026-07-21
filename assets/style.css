@@ -111,3 +111,20 @@ br.sp{display:none}
 .fbrand-name{font-family:'Inter',sans-serif;font-weight:700;font-size:20px;color:#fff}
 .fbrand-sub{font-size:12px;color:rgba(255,255,255,.62)}
 .fcopy{font-family:'Inter',sans-serif;font-size:12px;color:rgba(255,255,255,.55);margin:0}
+
+
+/* AI活用ブログ(/ai/)用のティファニー配色テーマ(jibulabo.jp/ai/ とおそろい) */
+.theme-ai .blog-band{background:#E6F7F5;border-bottom-color:#0ABAB5}
+.theme-ai .blog-band-title{color:#123F3C}
+.theme-ai .blog-band-sub{color:#0A8F8A}
+.theme-ai .intro a{color:#0A8F8A;font-weight:700}
+.theme-ai .post-card{border-color:#DFF0EE;box-shadow:0 6px 18px rgba(10,186,181,.08)}
+.theme-ai .post-card::before{background:linear-gradient(90deg,#0ABAB5,#3ECFC7)}
+.theme-ai .post-card:hover{box-shadow:0 14px 30px rgba(10,186,181,.2)}
+.theme-ai .post-card:hover .post-card-title{color:#0A8F8A}
+.theme-ai .post-card-more{color:#0A8F8A}
+.theme-ai .post-card-date{color:#6D8B88}
+.theme-ai .cta{background:#E6F7F5}
+.theme-ai .btn-main{background:#0ABAB5}
+.theme-ai .btn-main:hover{background:#0A8F8A}
+.theme-ai .btn-sub{color:#0A8F8A;border-color:#0ABAB5}
