@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI事務員さん｜夜の事務作業、AIが終わらせます - JibuLabo（ジブラボ）</title>
+<meta name="description" content="現場メモから見積のたたき台、写真からブログ、見積から提案書。実際の工務店で毎日動いているAIの仕組みを、あなたの会社にもつくります。買い切り44,000円〜、月額サポート22,000円。まずは無料のAI事務員診断から。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Zen Kaku Gothic New','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;color:#14395C;background:#fff;line-height:2;-webkit-font-smoothing:antialiased}
+img{max-width:100%}
+.wrap{max-width:1080px;margin:0 auto;padding:0 clamp(20px,5vw,52px)}
+
+/* ヘッダー(トップページと同じ) */
+.site-header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid #EAF1F7}
+.hwrap{max-width:1200px;margin:0 auto;padding:14px clamp(20px,5vw,52px);display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:baseline;gap:12px;text-decoration:none}
+.brand-name{font-family:'Inter',sans-serif;font-weight:700;font-size:22px;background:linear-gradient(100deg,#1E7CBD 0%,#2E9BD6 55%,#2E9BD6 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.brand-sub{font-size:12px;color:#5A6B7E;letter-spacing:.06em;font-weight:500}
+.hcta{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(100deg,#1B6FB0,#2E9BD6);color:#fff;font-weight:700;font-size:14px;padding:11px 22px;border-radius:999px;text-decoration:none;transition:transform .25s,box-shadow .25s}
+.hcta:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(27,111,176,.32)}
+
+/* ヒーロー */
+.hero{position:relative;overflow:hidden;background:#F4F8FC;padding:clamp(48px,8vw,90px) 0 clamp(40px,6vw,70px)}
+.ghost{position:absolute;top:4%;left:-2%;font-family:'Inter',sans-serif;font-weight:800;font-size:clamp(70px,14vw,220px);line-height:.8;color:#E2EDF7;white-space:nowrap;pointer-events:none;user-select:none}
+.hero-inner{position:relative;z-index:2}
+.eyebrow{display:inline-block;font-weight:700;font-size:13px;color:#1B6FB0;background:#fff;border:1px solid #CFE3F3;border-radius:999px;padding:7px 18px;margin:0 0 18px}
+h1{font-weight:900;font-size:clamp(28px,4.6vw,52px);line-height:1.45;margin:0 0 18px;color:#14395C;text-wrap:pretty}
+h1 .grad{background:linear-gradient(100deg,#1E7CBD 0%,#2E9BD6 60%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.lead{font-size:clamp(15px,1.8vw,18px);font-weight:500;max-width:44em;margin:0 0 26px;text-wrap:pretty}
+.stat-row{display:flex;flex-wrap:wrap;gap:12px;margin:0 0 30px}
+.stat{background:#fff;border:1px solid #D6E6F3;border-radius:16px;padding:14px 20px;font-size:13.5px;font-weight:700;color:#14395C}
+.stat b{display:block;font-family:'Inter',sans-serif;font-size:24px;color:#1B6FB0;line-height:1.3}
+.stat small{display:block;font-weight:500;color:#7A8FA6;font-size:11px}
+
+/* ボタン */
+.btn-line{display:inline-flex;align-items:center;gap:10px;background:#06C755;color:#fff;font-weight:900;font-size:clamp(15px,1.8vw,18px);padding:18px 34px;border-radius:999px;text-decoration:none;box-shadow:0 12px 26px rgba(6,199,85,.32);transition:transform .25s,box-shadow .25s}
+.btn-line:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(6,199,85,.42)}
+.btn-note{font-size:12.5px;color:#5A6B7E;margin:10px 0 0}
+
+/* セクション共通 */
+section{padding:clamp(48px,7vw,84px) 0}
+.sec-label{font-family:'Inter',sans-serif;font-weight:700;font-size:12px;letter-spacing:.22em;color:#2E9BD6;margin:0 0 10px}
+h2{font-weight:900;font-size:clamp(24px,3.6vw,40px);line-height:1.4;color:#1B6FB0;margin:0 0 18px;text-wrap:pretty}
+.sec-lead{font-size:clamp(14px,1.6vw,16.5px);font-weight:500;max-width:46em;margin:0 0 34px;text-wrap:pretty}
+
+/* お悩み */
+.nayami{background:#fff}
+.nayami-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:14px}
+.nayami-item{background:#F4F8FC;border:1px solid #E1ECF5;border-radius:16px;padding:18px 20px;font-weight:700;font-size:14.5px;display:flex;gap:10px;align-items:flex-start}
+.nayami-item span{color:#2E9BD6;font-weight:900;flex-shrink:0}
+
+/* メニュー(パック) */
+.packs{background:#F4F8FC;position:relative;overflow:hidden}
+.pack-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:18px}
+.pack{position:relative;background:#fff;border:1px solid #E6EEF5;border-radius:22px;padding:clamp(24px,3vw,32px);display:flex;flex-direction:column;overflow:hidden}
+.pack::before{content:"";position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,#1B6FB0,#2E9BD6)}
+.pack-tag{display:inline-block;align-self:flex-start;font-size:11.5px;font-weight:700;color:#1B6FB0;background:#EAF3FA;border:1px solid #CFE3F3;border-radius:999px;padding:4px 12px;margin:0 0 12px}
+.pack h3{font-weight:900;font-size:clamp(17px,2vw,20px);line-height:1.5;margin:0 0 6px;color:#14395C}
+.pack p.for{font-size:12.5px;font-weight:700;color:#2E9BD6;margin:0 0 10px}
+.pack .ba{display:flex;flex-direction:column;gap:4px;background:#F4F8FC;border:1px solid #E1ECF5;border-radius:12px;padding:10px 14px;margin:0 0 12px;font-size:12.5px;font-weight:700;line-height:1.7}
+.pack .ba .before{color:#7A8FA6;text-decoration:line-through;text-decoration-color:rgba(232,117,109,.55);text-decoration-thickness:2px}
+.pack .ba .after{color:#1B6FB0}
+.pack .ba .after b{font-size:14px}
+.pack p.desc{font-size:14px;font-weight:500;line-height:1.95;margin:0 0 14px;color:#3A5068}
+.pack.main{border:2px solid #1B6FB0;box-shadow:0 18px 40px rgba(27,111,176,.14)}
+.pack.main::after{content:"いちばんの看板メニュー";position:absolute;top:16px;right:-38px;transform:rotate(38deg);background:linear-gradient(100deg,#1B6FB0,#2E9BD6);color:#fff;font-size:10.5px;font-weight:700;padding:5px 40px;letter-spacing:.06em}
+.set-box{display:flex;flex-wrap:wrap;align-items:center;gap:16px;background:#fff;border:2px dashed #2E9BD6;border-radius:20px;padding:clamp(20px,2.6vw,28px);margin:18px 0}
+.set-box .set-name{font-weight:900;font-size:clamp(16px,1.9vw,19px);color:#14395C}
+.set-box .set-price{font-family:'Inter','Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:26px;color:#1B6FB0;margin-left:auto}
+.set-box .set-price small{font-size:12px;font-weight:700;color:#5A6B7E}
+.set-box p{width:100%;font-size:13px;font-weight:500;color:#3A5068;margin:0;line-height:1.9}
+
+/* よくある質問 */
+.faq{background:#fff}
+.faq-item{border:1px solid #E6EEF5;border-radius:16px;padding:20px 24px;margin:0 0 12px}
+.faq-item .q{font-weight:900;font-size:15px;margin:0 0 8px;color:#14395C;display:flex;gap:10px}
+.faq-item .q span{color:#1B6FB0;font-family:'Inter',sans-serif;flex-shrink:0}
+.faq-item .a{font-size:14px;font-weight:500;margin:0;color:#3A5068;line-height:1.95;display:flex;gap:10px}
+.faq-item .a span{color:#2E9BD6;font-family:'Inter',sans-serif;font-weight:800;flex-shrink:0}
+.pack .price{font-family:'Inter','Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:30px;color:#1B6FB0;margin:auto 0 4px}
+.pack .price small{font-size:13px;font-weight:700;color:#5A6B7E}
+.pack .why{font-size:12.5px;color:#7A8FA6;font-weight:500;line-height:1.8;margin:0;border-top:1px dashed #D6E6F3;padding-top:10px}
+
+/* 共通の流れ */
+.flow{background:#fff}
+.flow-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:14px;counter-reset:step}
+.flow-item{background:#F4F8FC;border:1px solid #E1ECF5;border-radius:16px;padding:20px;position:relative}
+.flow-item::before{counter-increment:step;content:counter(step);position:absolute;top:-14px;left:16px;width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#1B6FB0,#2E9BD6);color:#fff;font-family:'Inter',sans-serif;font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center}
+.flow-item h4{font-weight:900;font-size:15px;margin:8px 0 6px}
+.flow-item p{font-size:13px;font-weight:500;margin:0;line-height:1.9;color:#3A5068}
+
+/* 月額 */
+.kakari{background:#F4F8FC}
+.kakari-card{position:relative;background:linear-gradient(120deg,#1B6FB0,#2E9BD6);border-radius:26px;padding:clamp(30px,4vw,48px);color:#fff;overflow:hidden}
+.kakari-card .ghost2{position:absolute;top:-20px;right:-10px;font-family:'Inter',sans-serif;font-weight:800;font-size:clamp(60px,9vw,120px);line-height:1;color:rgba(255,255,255,.08);pointer-events:none}
+.kakari-card h3{font-weight:900;font-size:clamp(20px,2.6vw,28px);margin:0 0 6px}
+.kakari-card .kprice{font-family:'Inter','Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:clamp(34px,4.5vw,46px);margin:0 0 16px}
+.kakari-card .kprice small{font-size:15px;font-weight:700;opacity:.85}
+.kakari-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:10px;margin:0 0 18px;padding:0;list-style:none}
+.kakari-list li{background:rgba(255,255,255,.14);border-radius:12px;padding:12px 16px;font-size:14px;font-weight:700;display:flex;gap:8px;align-items:flex-start}
+.kakari-list li span{flex-shrink:0}
+.kakari-card p.kwhy{font-size:13.5px;font-weight:500;opacity:.92;margin:0;max-width:44em;line-height:1.95}
+
+/* 実例 */
+.jirei{background:#fff}
+.sns-row{display:flex;flex-wrap:wrap;gap:12px}
+.sns-link{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14px;color:#1B6FB0;background:#EAF3FA;border:1px solid #CFE3F3;border-radius:999px;padding:10px 20px;text-decoration:none;transition:background .2s}
+.sns-link:hover{background:#DCEEFA}
+
+/* CTA */
+.cta-sec{background:#F4F8FC;text-align:center}
+.cta-box{background:#fff;border:1px solid #E6EEF5;border-radius:26px;padding:clamp(34px,5vw,56px);box-shadow:0 18px 40px rgba(27,111,176,.10)}
+.cta-box h2{margin-bottom:10px}
+.cta-box p{max-width:40em;margin:0 auto 26px;font-weight:500;font-size:clamp(14px,1.6vw,16px)}
+
+/* 注意書き */
+.notes{font-size:12px;color:#7A8FA6;line-height:1.9;margin-top:26px}
+
+/* フッター(トップページと同じ) */
+.site-footer{background:linear-gradient(120deg,#1B6FB0 0%,#1E7CBD 40%,#2E9BD6 70%,#2E9BD6 100%);color:rgba(255,255,255,.85)}
+.fwrap{max-width:1200px;margin:0 auto;padding:50px clamp(20px,5vw,52px);display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center}
+.fbrand{display:flex;align-items:baseline;gap:12px}
+.fbrand-name{font-family:'Inter',sans-serif;font-weight:700;font-size:20px;color:#fff}
+.fbrand-sub{font-size:12px;color:rgba(255,255,255,.62)}
+.fcopy{font-family:'Inter',sans-serif;font-size:12px;color:rgba(255,255,255,.55);margin:0}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="hwrap">
+    <a class="brand" href="https://jibulabo.jp/">
+      <span class="brand-name">JibuLabo</span>
+      <span class="brand-sub">経営の参謀</span>
+    </a>
+    <a class="hcta" href="https://lin.ee/trP0HDw" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 3C6.9 3 3 6.4 3 10.5c0 3.7 3.2 6.8 7.5 7.4.3.1.6.3.6.6l.3 1.8c.1.4.5.5.8.2l2.4-2.9c.1-.2.3-.2.5-.3C18.8 16.2 21 13.6 21 10.5 21 6.4 17.1 3 12 3Z" fill="currentColor"/></svg>
+      無料でAI事務員診断
+    </a>
+  </div>
+</header>
+
+<!-- ヒーロー -->
+<div class="hero">
+  <span class="ghost" aria-hidden="true">AI STAFF</span>
+  <div class="wrap hero-inner">
+    <span class="eyebrow">小さな工務店・一人親方のための AI導入サポート</span>
+    <h1>現場から帰って、夜は事務作業。<br>その毎日、<span class="grad">AIが終わらせます。</span></h1>
+    <p class="lead">見積のたたき台、ブログ、提案書、SNS。社長が夜にやっていた仕事を、AIの仕組みが肩代わり。むずかしい設定はぜんぶこちらでやります。実際の工務店さんで毎日動いている仕組みを、あなたの会社にもつくります。</p>
+    <div class="stat-row">
+      <div class="stat"><b>2人に1人</b>建築業の経営者は毎日2時間以上を事務作業に<small>※クラフトバンク総研調べ</small></div>
+      <div class="stat"><b>86.7%</b>AIを使っている会社が「効果あり」と回答<small>※帝国データバンク2026年3月調査</small></div>
+      <div class="stat"><b>6社に1社</b>でも実際に使えているのはまだこれだけ<small>※同調査（利用中17.3%）</small></div>
+    </div>
+    <a class="btn-line" href="https://lin.ee/trP0HDw" target="_blank" rel="noopener">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3C6.9 3 3 6.4 3 10.5c0 3.7 3.2 6.8 7.5 7.4.3.1.6.3.6.6l.3 1.8c.1.4.5.5.8.2l2.4-2.9c.1-.2.3-.2.5-.3C18.8 16.2 21 13.6 21 10.5 21 6.4 17.1 3 12 3Z" fill="currentColor"/></svg>
+      LINEで無料のAI事務員診断
+    </a>
+    <p class="btn-note">「いま一番時間を取られている作業」を一言送るだけ。営業のご連絡はしません。</p>
+  </div>
+</div>
+
+<!-- お悩み -->
+<section class="nayami">
+  <div class="wrap">
+    <p class="sec-label">PROBLEM</p>
+    <h2>こんな毎日に、なっていませんか？</h2>
+    <div class="nayami-grid">
+      <div class="nayami-item"><span>✔</span>見積づくりが夜までかかり、お客様への返事が遅れがち</div>
+      <div class="nayami-item"><span>✔</span>現場から帰って、夜にブログやSNSを書いている</div>
+      <div class="nayami-item"><span>✔</span>事務員の求人を出しても、応募が来ない</div>
+      <div class="nayami-item"><span>✔</span>AIが良いのは聞くけど、何から始めればいいか分からない</div>
+    </div>
+    <p class="sec-lead" style="margin-top:28px;margin-bottom:0">AIは「勉強してから使うもの」ではありません。<b>新入社員に仕事を教えるのと同じ順番で、1つずつAIに引き継げばいい</b>のです。その引き継ぎを、私がとなりで一緒にやります。</p>
+  </div>
+</section>
+
+<!-- メニュー -->
+<section class="packs">
+  <div class="wrap">
+    <p class="sec-label">MENU &amp; PRICE</p>
+    <h2>AI事務員さんに、まかせられる仕事</h2>
+    <p class="sec-lead">ほしいものを1つ選ぶだけ。どれも<b>実際の工務店さんで毎日動いている仕組み</b>です。すべて買い切りで、毎月の利用料はかかりません。<br>※時間はいずれも目安です。AIがつくるのは「下書き・たたき台」まで。<b>金額や内容の最終判断は、必ず社長の手に残します。</b></p>
+
+    <div class="pack-grid">
+      <div class="pack main">
+        <span class="pack-tag">単価表づくりから伴走</span>
+        <h3>見積たたき台パック</h3>
+        <p class="for">→ 見積がたまって、お客様への返事が遅れがちな社長に</p>
+        <div class="ba">
+          <span class="before">いま：メモを見ながら2時間かけて書式に入力</span>
+          <span class="after">これから：<b>たたき台は数分</b>。社長は確認と手直しだけ（目安）</span>
+        </div>
+        <p class="desc">現場写真とメモ（スマホの音声メモ・LINE・手書きの写真でOK）をフォルダに入れてダブルクリック。<b>いつもの自社Excel見積書式</b>に、工事項目・数量・単価の下書きが入った状態で出てきます。社長の頭の中にある単価表のExcel化、過去の似た見積を探す仕組みもセットです。</p>
+        <p class="price">88,000<small>円（税込）／納品目安3〜4週間</small></p>
+        <p class="why">たたき台づくりに1件2時間なら、月10件で20時間。パート人件費に換算して約2〜3ヶ月で元が取れる計算です（目安）。あなたの会社専用の単価表づくりが含まれます。</p>
+      </div>
+      <div class="pack">
+        <span class="pack-tag">外壁塗装店で稼働中</span>
+        <h3>見積 → 提案書パック</h3>
+        <p class="for">→ 「見積を出すだけ」で終わりたくない社長に</p>
+        <div class="ba">
+          <span class="before">いま：1件ごとに資料を手づくり（または見積書だけ提出）</span>
+          <span class="after">これから：見積PDFを入れると<b>ロゴ入り提案書11枚が自動で</b>（目安）</span>
+        </div>
+        <p class="desc">できあがった見積PDFを入れると、会社ロゴ入りの提案書（全11ページ）が自動で完成。相見積もりでも「ていねいな会社」として選ばれやすくなります。</p>
+        <p class="price">77,000<small>円（税込）</small></p>
+        <p class="why">提案書1件2時間×月10件＝月20時間。パート人件費に換算して約1ヶ月で元が取れる計算です（目安）。</p>
+      </div>
+    </div>
+
+    <div class="set-box">
+      <span class="set-name">🎁 見積まるごとセット（たたき台＋提案書）</span>
+      <span class="set-price">143,000<small>円（税込）単品合計より22,000円おトク</small></span>
+      <p>「見積をつくる時間を減らす」＋「できた見積を、契約が決まりやすい提案書に変える」。見積のお悩みを入口から出口までまとめて解決するセットです。</p>
+    </div>
+
+    <div class="pack-grid">
+      <div class="pack">
+        <span class="pack-tag">あかり工務店で稼働中</span>
+        <h3>現場写真 → ブログパック</h3>
+        <p class="for">→ ブログが3ヶ月止まっている社長に</p>
+        <div class="ba">
+          <span class="before">いま：夜に30分かけてブログを書く（そして続かない）</span>
+          <span class="after">これから：<b>写真を入れてダブルクリックだけ</b>（目安）</span>
+        </div>
+        <p class="desc">現場写真をフォルダに入れてダブルクリックするだけ。写真の明るさ補正、ブログ記事、Googleビジネスプロフィール投稿文まで自動で完成します。</p>
+        <p class="price">55,000<small>円（税込）</small></p>
+        <p class="why">ブログ・SNS代行は月5万円〜が相場。同じ額を1回払えば、あとは毎月0円で回り続けます。</p>
+      </div>
+      <div class="pack">
+        <span class="pack-tag">自社2アカウントで稼働中</span>
+        <h3>SNSまるごと自動投稿パック</h3>
+        <p class="for">→ SNSが大事なのは分かっているけど続かない社長に</p>
+        <div class="ba">
+          <span class="before">いま：毎日「何を投稿しよう」と考える</span>
+          <span class="after">これから：考える時間<b>ゼロ</b>。仕組みが毎日投稿</span>
+        </div>
+        <p class="desc">X（旧Twitter）・Threads・Instagramに、AIがつくった投稿を毎日自動でお届け。「発信が続かない」から卒業できます。※SNS側の実費が別途月数百円かかります</p>
+        <p class="price">88,000<small>円（税込）</small></p>
+        <p class="why">SNS運用代行に頼むと年60万円〜。買い切りなら、その2ヶ月分以下です。</p>
+      </div>
+      <div class="pack">
+        <span class="pack-tag">不動産・物件をあつかう方に</span>
+        <h3>物件写真・動画パック</h3>
+        <p class="for">→ 不動産も扱っていて、物件写真が山ほどある社長に</p>
+        <div class="ba">
+          <span class="before">いま：物件紹介文も動画編集も手が回らない</span>
+          <span class="after">これから：写真→紹介文、動画→<b>縦型リールが自動で</b>（目安）</span>
+        </div>
+        <p class="desc">物件写真から紹介キャッチコピーを自動作成。物件動画は、スマホ向けの縦型リール動画に自動変換します。</p>
+        <p class="price">44,000<small>円（税込）</small></p>
+        <p class="why">動画編集を1本5,000円で外注したら9本分。この仕組みなら何本でも作れます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 進め方 -->
+<section class="flow">
+  <div class="wrap">
+    <p class="sec-label">FLOW</p>
+    <h2>すべてのパック共通の進め方</h2>
+    <p class="sec-lead">納品まで約2〜3週間。パソコンが苦手でも大丈夫。「ダブルクリックだけ」の状態にしてお渡しします。</p>
+    <div class="flow-grid">
+      <div class="flow-item"><h4>Zoomでヒアリング</h4><p>いまのやり方・お使いのパソコンに合わせて設計します。</p></div>
+      <div class="flow-item"><h4>こちらで仕組みを設定</h4><p>むずかしい作業はぜんぶお任せください。</p></div>
+      <div class="flow-item"><h4>一緒に操作練習</h4><p>社長のパソコンで、Zoomをつなぎながら一緒に動かします。</p></div>
+      <div class="flow-item"><h4>30日間サポート</h4><p>設置後30日間は、LINEで質問し放題です。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 月額 -->
+<section class="kakari">
+  <div class="wrap">
+    <p class="sec-label">MONTHLY SUPPORT</p>
+    <h2>ずっと相談したい方は「うちのAI係」</h2>
+    <div class="kakari-card">
+      <span class="ghost2" aria-hidden="true">AI KAKARI</span>
+      <h3>うちのAI係（月額サポート）</h3>
+      <p class="kprice">22,000<small>円（税込）／月・いつでも解約OK</small></p>
+      <ul class="kakari-list">
+        <li><span>💬</span>LINEで質問し放題（「これ、AIでできる？」も歓迎）</li>
+        <li><span>🖥</span>月1回のZoom（60分）で、自動化を毎月1つずつ追加</li>
+        <li><span>🎁</span>新しくつくった工務店向けツールを優先でお届け</li>
+        <li><span>🏷</span>単発パックはずっと会員価格（10,000円引き）</li>
+      </ul>
+      <p class="kwhy">AI顧問の相場は月30万円〜。事務パートさんを週1日お願いしても月4万円ほど。その半分で「AIにくわしい社員が1人いる会社」になれます。契約の縛り・違約金はありません。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 実例 -->
+<section class="jirei">
+  <div class="wrap">
+    <p class="sec-label">PROOF</p>
+    <h2>「本当に動くの？」→ 毎日動いているところを見られます</h2>
+    <p class="sec-lead">私自身のSNSも、この仕組みで毎日自動投稿しています。つくり話ではなく、いま動いている実物をご覧ください。</p>
+    <div class="sns-row">
+      <a class="sns-link" href="https://x.com/5000reform" target="_blank" rel="noopener">𝕏 @5000reform の自動投稿を見る</a>
+      <a class="sns-link" href="https://www.threads.net/@5000_reform" target="_blank" rel="noopener">@ Threads の自動投稿を見る</a>
+      <a class="sns-link" href="https://www.instagram.com/5000_reform/" target="_blank" rel="noopener">📷 Instagram の自動投稿を見る</a>
+      <a class="sns-link" href="https://jibulabo.jp/blog/" target="_blank" rel="noopener">📝 毎朝AIが自動更新しているブログを見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- よくある質問 -->
+<section class="faq">
+  <div class="wrap">
+    <p class="sec-label">Q &amp; A</p>
+    <h2>よくあるご質問</h2>
+    <div class="faq-item">
+      <p class="q"><span>Q.</span>パソコンが苦手でも使えますか？</p>
+      <p class="a"><span>A.</span>フォルダに入れてダブルクリックするだけの形でお渡しします。操作はZoomで一緒に練習しますので、ご安心ください。</p>
+    </div>
+    <div class="faq-item">
+      <p class="q"><span>Q.</span>AIが勝手に金額を決めるのは不安です。</p>
+      <p class="a"><span>A.</span>AIが作るのは「下書き・たたき台」までです。金額や内容の最終判断は、必ず社長がします。ここはAIに渡しません。</p>
+    </div>
+    <div class="faq-item">
+      <p class="q"><span>Q.</span>お客様の情報は安全ですか？</p>
+      <p class="a"><span>A.</span>仕組みは社長のパソコンの中で動きます。ご不安な点は、導入前にすべてご説明します。</p>
+    </div>
+    <div class="faq-item">
+      <p class="q"><span>Q.</span>合わなかったらどうなりますか？</p>
+      <p class="a"><span>A.</span>月額サポートは縛りなし・いつでも解約できます。また、無料診断の段階で「AIに向かない作業」は正直にお伝えします。</p>
+    </div>
+    <div class="faq-item">
+      <p class="q"><span>Q.</span>相談したら営業されますか？</p>
+      <p class="a"><span>A.</span>しません。LINEの無料診断は「できる・できない」をお答えするだけです。</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-sec">
+  <div class="wrap">
+    <div class="cta-box">
+      <p class="sec-label">FREE CHECK</p>
+      <h2>まずは、無料の「AI事務員診断」から</h2>
+      <p>LINEで<b>「いま一番時間を取られている作業」</b>を一言送ってください。AIにまかせられるかどうか、正直にお返事します。できないことは「できません」とお伝えします。営業のご連絡はしません。</p>
+      <a class="btn-line" href="https://lin.ee/trP0HDw" target="_blank" rel="noopener">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3C6.9 3 3 6.4 3 10.5c0 3.7 3.2 6.8 7.5 7.4.3.1.6.3.6.6l.3 1.8c.1.4.5.5.8.2l2.4-2.9c.1-.2.3-.2.5-.3C18.8 16.2 21 13.6 21 10.5 21 6.4 17.1 3 12 3Z" fill="currentColor"/></svg>
+        LINEで無料診断をうける
+      </a>
+      <p class="btn-note">友だち追加のあと、スタンプ1つ＋一言でOKです。</p>
+      <p class="notes">※ 出典：建築業経営者の事務時間はクラフトバンク総研調査、生成AIの利用率・効果は帝国データバンク「生成AIに関する企業の動向調査」（2026年3月）。価格はすべて税込です。パソコン環境により対応できない場合は、お申し込み前に正直にお伝えします。</p>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="fwrap">
+    <div class="fbrand">
+      <span class="fbrand-name">JibuLabo</span>
+      <span class="fbrand-sub">小さな工務店の、経営の参謀。</span>
+    </div>
+    <p class="fcopy">© 2026 JibuLabo Co., Ltd.</p>
+  </div>
+</footer>
+
+</body>
+</html>

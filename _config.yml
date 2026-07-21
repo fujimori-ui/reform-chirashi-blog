@@ -12,6 +12,9 @@ plugins:
   - jekyll-seo-tag
 exclude:
   - README.md
+  - site_ai
+  - upload_ai.py
+  - illust_catalog.json
   - generate_article.py
   - make_eyecatch.py
   - deploy_ftp.py
