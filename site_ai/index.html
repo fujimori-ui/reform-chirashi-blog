@@ -30,8 +30,10 @@ img{max-width:100%}
 .hero-inner{position:relative;z-index:2}
 .hero-flex{display:flex;align-items:center;gap:clamp(24px,4vw,56px)}
 .hero-txt{flex:1;min-width:0}
-.hero-img{width:clamp(260px,34vw,440px);flex-shrink:0;border-radius:24px;box-shadow:0 24px 50px rgba(18,63,60,.22);display:block}
-@media (max-width:860px){.hero-flex{flex-direction:column;align-items:stretch}.hero-img{width:100%;max-width:480px;margin:0 auto}}
+.hero-visual{position:relative;width:44%;flex-shrink:0;margin-right:-40px}
+.hero-visual::before{content:"";position:absolute;inset:22px -20px -24px 28px;border-radius:28px;background:linear-gradient(135deg,#0AA6A1,#3ECFC7,#3ECFC7);opacity:.15}
+.hero-img{position:relative;display:block;width:100%;height:clamp(300px,34vw,420px);object-fit:cover;object-position:50% 50%;border-radius:26px;box-shadow:0 30px 70px rgba(10,186,181,.18)}
+@media (max-width:860px){.hero-flex{flex-direction:column;align-items:stretch}.hero-visual{width:100%;max-width:480px;margin:0 auto}.hero-img{height:auto}}
 .eyebrow{display:inline-block;font-weight:700;font-size:13px;color:#0ABAB5;background:#fff;border:1px solid #C2E9E6;border-radius:999px;padding:7px 18px;margin:0 0 18px}
 h1{font-weight:900;font-size:clamp(28px,4.6vw,52px);line-height:1.45;margin:0 0 18px;color:#123F3C;text-wrap:pretty}
 h1 .grad{background:linear-gradient(100deg,#0AA6A1 0%,#3ECFC7 60%);-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -190,7 +192,9 @@ h2{font-weight:900;font-size:clamp(24px,3.6vw,40px);line-height:1.4;color:#0ABAB
     </a>
     <p class="btn-note">「いま一番時間を取られている作業」を一言送るだけ。営業のご連絡はしません。</p>
     </div>
-    <img class="hero-img" src="keitora.jpg" alt="現場へ向かう工務店の軽トラック">
+    <div class="hero-visual">
+      <img class="hero-img" src="keitora.jpg" alt="現場へ向かう工務店の軽トラック">
+    </div>
     </div>
   </div>
 </div>
