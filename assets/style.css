@@ -114,6 +114,20 @@ br.sp{display:none}
 
 
 /* AI活用ブログ(/ai/)用のティファニー配色テーマ(jibulabo.jp/ai/ とおそろい) */
+.theme-ai{color:#123F3C}
+.theme-ai ::selection{background:#C2E9E6}
+.theme-ai .site-header{border-bottom-color:#E3F1EF}
+.theme-ai .brand-name{background:linear-gradient(100deg,#0AA6A1 0%,#3ECFC7 55%,#3ECFC7 100%);-webkit-background-clip:text;background-clip:text}
+.theme-ai .navlink{color:#123F3C}
+.theme-ai .navlink:hover{color:#0A8F8A;background:#E6F7F5}
+.theme-ai .header-cta{background:linear-gradient(100deg,#0ABAB5,#3ECFC7)}
+.theme-ai .header-cta:hover{box-shadow:0 10px 22px rgba(10,186,181,.32)}
+.theme-ai .site-footer{background:linear-gradient(120deg,#0ABAB5 0%,#0AA6A1 40%,#3ECFC7 70%,#3ECFC7 100%)}
+.theme-ai .btn-home{color:#123F3C;border-color:#C2E9E6}
+.theme-ai .btn-home:hover{background:#E6F7F5;border-color:#0ABAB5}
+.theme-ai .cta-title{color:#123F3C}
+.theme-ai .post-card{color:#123F3C}
+.theme-ai .post-card-desc{color:#3D5B58}
 .theme-ai .blog-band{background:#E6F7F5;border-bottom-color:#0ABAB5}
 .theme-ai .blog-band-title{color:#123F3C}
 .theme-ai .blog-band-sub{color:#0A8F8A}
