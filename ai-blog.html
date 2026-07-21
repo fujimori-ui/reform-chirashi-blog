@@ -1,0 +1,32 @@
+---
+layout: default
+wide: true
+permalink: /ai/
+title: 建築業のAI活用ブログ｜小さな工務店の集客ノート
+description: 時間のない工務店社長のための、AI活用の記事一覧。事務作業・見積・SNS・ブログをAIで時短する方法を、毎日1本ずつやさしく解説します。
+---
+<div class="intro">
+  <p><b>時間のない建築業の社長のための、AI活用の記事一覧です。</b><br>
+  見積・書類・SNS・写真整理…事務作業をAIで時短する方法を、むずかしい言葉を使わずに毎日1本ずつお届けします。<br>
+  <a href="https://jibulabo.jp/ai/">→ AI導入サポート（AI事務員さん）のご案内はこちら</a></p>
+</div>
+<div class="post-grid">
+  {% for post in site.posts %}
+  {% if post.tags contains 'ai' %}
+  <a class="post-card" href="{{ post.url | relative_url }}">
+    {% if post.image %}
+    <span class="post-card-thumb"><img src="{{ post.image | relative_url }}" alt="" loading="lazy"></span>
+    {% endif %}
+    <span class="post-card-body">
+      <span class="post-card-date">{{ post.date | date: "%Y年%-m月%-d日" }}</span>
+      <span class="post-card-title">{{ post.title }}</span>
+      {% if post.description %}<span class="post-card-desc">{{ post.description }}</span>{% endif %}
+      <span class="post-card-more">記事を読む
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+      </span>
+    </span>
+  </a>
+  {% endif %}
+  {% endfor %}
+</div>
+{% include cta.html %}

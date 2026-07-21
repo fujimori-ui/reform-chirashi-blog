@@ -14,6 +14,8 @@ import time
 HERE = os.path.dirname(os.path.abspath(__file__))
 TOPICS_PATH = os.path.join(HERE, "topics.json")
 STATE_PATH = os.path.join(HERE, "state.json")
+AI_TOPICS_PATH = os.path.join(HERE, "ai_topics.json")   # AI専用連載のネタ帳
+AI_STATE_PATH = os.path.join(HERE, "ai_state.json")     # AI専用連載の進行状況
 POSTS_DIR = os.path.join(HERE, "_posts")
 
 MODEL = "claude-sonnet-5"
@@ -196,10 +198,13 @@ def parse_output(raw):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true", help="保存せず記事を表示するだけ")
+    ap.add_argument("--ai", action="store_true", help="AI活用テーマ(毎日のAI専用連載)の記事を作る")
     args = ap.parse_args()
 
-    topics = load_json(TOPICS_PATH, [])
-    state = load_json(STATE_PATH, {"next_topic": 0})
+    topics_path = AI_TOPICS_PATH if args.ai else TOPICS_PATH
+    state_path = AI_STATE_PATH if args.ai else STATE_PATH
+    topics = load_json(topics_path, [])
+    state = load_json(state_path, {"next_topic": 0})
     idx = state.get("next_topic", 0)
 
     if idx >= len(topics):
@@ -248,7 +253,7 @@ def main():
         import make_eyecatch
         make_eyecatch.make(title, topic["slug"])
     state["next_topic"] = idx + 1
-    save_json(STATE_PATH, state)
+    save_json(state_path, state)
     print(f"記事を保存しました: _posts/{filename}")
     print(f"タイトル: {title}")
 
