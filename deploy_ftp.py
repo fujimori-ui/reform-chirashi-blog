@@ -40,9 +40,19 @@ def main():
     if not os.path.isdir(LOCAL_DIR):
         sys.exit(f"エラー: {LOCAL_DIR} がありません。先に jekyll build してください。")
 
-    ftps = FTP_TLS(host, timeout=60)
-    ftps.login(user, password)
-    ftps.prot_p()
+    # 接続がタイムアウトすることがあるので、少し待ってやり直す
+    import time
+    for attempt in range(3):
+        try:
+            ftps = FTP_TLS(host, timeout=60)
+            ftps.login(user, password)
+            ftps.prot_p()
+            break
+        except OSError as e:
+            if attempt == 2:
+                raise
+            print(f"接続に失敗({e})。30秒待ってやり直します({attempt + 2}/3)")
+            time.sleep(30)
     print(f"ログインOK: {host}")
 
     count = 0
