@@ -114,6 +114,34 @@ h2{font-weight:900;font-size:clamp(24px,3.6vw,40px);line-height:1.4;color:#0ABAB
 .pack .price small{font-size:13px;font-weight:700;color:#5B7875}
 .pack .why{font-size:12.5px;color:#6D8B88;font-weight:500;line-height:1.8;margin:0;border-top:1px dashed #CDEAE7;padding-top:10px}
 
+/* 社長の夜 Before/After */
+.night-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 30px}
+@media (max-width:760px){.night-grid{grid-template-columns:1fr}}
+.night{border-radius:16px;padding:18px 22px}
+.night-label{font-weight:900;font-size:14px;margin:0 0 8px}
+.night-flow{font-size:14px;font-weight:600;line-height:2;margin:0}
+.night.before{background:#fff;border:1px solid #E3E9E8}
+.night.before .night-label{color:#E8756D}
+.night.before .night-flow{color:#5B7875}
+.night.after{background:#fff;border:2px solid #0ABAB5;box-shadow:0 10px 24px rgba(10,186,181,.12)}
+.night.after .night-label{color:#0A8F8A}
+.night.after .night-flow b{color:#0A8F8A}
+
+/* ミニ診断 */
+.mini-shindan{background:#fff;border:2px dashed #3ECFC7;border-radius:18px;padding:clamp(20px,2.6vw,28px);margin:22px 0 0}
+.mini-shindan .ms-q{font-weight:900;font-size:clamp(15px,1.8vw,18px);margin:0 0 10px;color:#123F3C}
+.mini-shindan p{font-size:14.5px;font-weight:600;line-height:2.1;margin:0}
+.mini-shindan a{color:#0A8F8A;font-weight:900}
+
+/* AIがやること/社長がやること */
+.role-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 12px}
+@media (max-width:700px){.role-grid{grid-template-columns:1fr}}
+.role{background:#F1FAF9;border:1px solid #DCEFEC;border-radius:16px;padding:20px 24px}
+.role-h{font-weight:900;font-size:15.5px;margin:0 0 10px;color:#0A8F8A}
+.role ul{margin:0;padding-left:1.3em;font-size:14px;font-weight:600;line-height:2.1}
+.role-note{font-weight:900;font-size:clamp(14px,1.7vw,16.5px);color:#123F3C;margin:0 0 30px;text-align:center}
+.role-note span{background:linear-gradient(transparent 72%,rgba(62,207,199,.4) 72%,rgba(62,207,199,.4) 94%,transparent 94%);padding:0 3px}
+
 /* 共通の流れ */
 .flow{background:#fff}
 .flow-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:14px;counter-reset:step}
@@ -241,6 +269,17 @@ h2{font-weight:900;font-size:clamp(24px,3.6vw,40px);line-height:1.4;color:#0ABAB
     <h2>AIにまかせると、この時間がなくなります</h2>
     <p class="sec-lead">ほしいものを1つ選ぶだけ。どれも<b>実際の工務店で毎日動いている仕組み</b>。買い切りで月額なし。AIがつくるのは下書きまで——<b>最終判断は社長に残します</b>（時間は目安）。</p>
 
+    <div class="night-grid">
+      <div class="night before">
+        <p class="night-label">いままでの夜</p>
+        <p class="night-flow">19:00 帰社 → 20:00 見積の入力 → 21:00 ブログ…はまた今度 → 22:00 帰宅</p>
+      </div>
+      <div class="night after">
+        <p class="night-label">AI事務員がいる夜</p>
+        <p class="night-flow">19:00 帰社 → 19:15 写真とメモを入れてダブルクリック → 19:30 できたものを確認して手直し → <b>20:00 帰宅</b>（目安）</p>
+      </div>
+    </div>
+
     <div class="pack-grid">
       <div class="pack main">
         <span class="pack-tag">単価表づくりから伴走</span>
@@ -312,6 +351,13 @@ h2{font-weight:900;font-size:clamp(24px,3.6vw,40px);line-height:1.4;color:#0ABAB
         <p class="why">動画外注1本5,000円なら9本分。これは何本でも作れます。</p>
       </div>
     </div>
+
+    <div class="mini-shindan">
+      <p class="ms-q">Q. いちばん夜の時間を奪っているのは、どれですか？</p>
+      <p>① 見積づくり → <b>見積たたき台パック</b>がおすすめ<br>
+      ② ブログ・SNS・写真の山 → <b>現場写真→ブログパック</b>がおすすめ<br>
+      ③ わからない・全部 → <a href="https://lin.ee/trP0HDw" target="_blank" rel="noopener">LINEで「診断」とスタンプ1つ</a>。一緒に考えます（無料・営業なし）</p>
+    </div>
   </div>
 </section>
 
@@ -321,6 +367,28 @@ h2{font-weight:900;font-size:clamp(24px,3.6vw,40px);line-height:1.4;color:#0ABAB
     <p class="sec-label">FLOW</p>
     <h2>すべてのパック共通の進め方</h2>
     <p class="sec-lead">納品まで約2〜3週間。「ダブルクリックだけ」の状態でお渡しします。</p>
+
+    <div class="role-grid">
+      <div class="role">
+        <p class="role-h">🤖 AIがやること</p>
+        <ul>
+          <li>文章や見積の下書きを作る</li>
+          <li>写真の明るさを整える</li>
+          <li>SNSに毎日投稿する</li>
+          <li>いつもの書式に入力する</li>
+        </ul>
+      </div>
+      <div class="role">
+        <p class="role-h">👷 社長がやること</p>
+        <ul>
+          <li>できたものの最終チェック</li>
+          <li>金額の判断</li>
+          <li>お客様への説明と対応</li>
+        </ul>
+      </div>
+    </div>
+    <p class="role-note"><span>AIは「よくできた事務員」です。社長の代わりに判断はしません。</span></p>
+
     <div class="flow-grid">
       <div class="flow-item"><h4>Zoomでヒアリング</h4><p>いまのやり方・お使いのパソコンに合わせて設計します。</p></div>
       <div class="flow-item"><h4>こちらで仕組みを設定</h4><p>むずかしい作業はぜんぶお任せください。</p></div>
