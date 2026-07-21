@@ -50,9 +50,10 @@ h2{font-weight:900;font-size:clamp(24px,3.6vw,40px);line-height:1.4;color:#0ABAB
 
 /* お悩み */
 .nayami{background:#fff}
-.nayami-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:14px}
-.nayami-item{background:#F1FAF9;border:1px solid #DCEFEC;border-radius:16px;padding:18px 20px;font-weight:700;font-size:14.5px;display:flex;gap:10px;align-items:flex-start}
-.nayami-item span{color:#3ECFC7;font-weight:900;flex-shrink:0}
+.nayami-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media (max-width:700px){.nayami-grid{grid-template-columns:1fr}}
+.nayami-item{background:#F1FAF9;border:1px solid #DCEFEC;border-radius:14px;padding:16px 20px;font-weight:700;font-size:15px;line-height:1.85;display:flex;gap:12px;align-items:flex-start}
+.nayami-item span{flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:#0ABAB5;color:#fff;font-size:14px;font-weight:900;margin-top:3px}
 
 /* メニュー(パック) */
 .packs{background:#F1FAF9;position:relative;overflow:hidden}
