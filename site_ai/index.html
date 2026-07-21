@@ -68,6 +68,9 @@ h2{font-weight:900;font-size:clamp(24px,3.6vw,40px);line-height:1.4;color:#0ABAB
 .pack-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:18px}
 .pack{position:relative;background:#fff;border:1px solid #DFF0EE;border-radius:22px;padding:clamp(24px,3vw,32px);display:flex;flex-direction:column;overflow:hidden}
 .pack::before{content:"";position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,#0ABAB5,#3ECFC7)}
+.pack-head{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:0 0 12px}
+.pack-head .pack-tag{margin:0}
+.pack-no{display:inline-flex;align-items:center;font-family:'Inter','Zen Kaku Gothic New',sans-serif;font-weight:800;font-size:12.5px;letter-spacing:.06em;color:#fff;background:linear-gradient(135deg,#0ABAB5,#3ECFC7);border-radius:10px;padding:5px 12px}
 .pack-tag{display:inline-block;align-self:flex-start;font-size:11.5px;font-weight:700;color:#0ABAB5;background:#E6F7F5;border:1px solid #C2E9E6;border-radius:999px;padding:4px 12px;margin:0 0 12px}
 .pack h3{font-weight:900;font-size:clamp(17px,2vw,20px);line-height:1.5;margin:0 0 6px;color:#123F3C}
 .pack p.for{font-size:12.5px;font-weight:700;color:#3ECFC7;margin:0 0 10px}
@@ -282,7 +285,7 @@ h2{font-weight:900;font-size:clamp(24px,3.6vw,40px);line-height:1.4;color:#0ABAB
 
     <div class="pack-grid">
       <div class="pack main">
-        <span class="pack-tag">単価表づくりから伴走</span>
+        <div class="pack-head"><span class="pack-no">No.1</span><span class="pack-tag">単価表づくりから伴走</span></div>
         <h3>見積たたき台パック</h3>
         <p class="for">→ 見積がたまって、お客様への返事が遅れがちな社長に</p>
         <div class="ba">
@@ -294,7 +297,7 @@ h2{font-weight:900;font-size:clamp(24px,3.6vw,40px);line-height:1.4;color:#0ABAB
         <p class="why">1件2時間×月10件＝月20時間。人件費換算で約2〜3ヶ月で元が取れる計算（目安）。</p>
       </div>
       <div class="pack">
-        <span class="pack-tag">外壁塗装店で稼働中</span>
+        <div class="pack-head"><span class="pack-no">No.2</span><span class="pack-tag">外壁塗装店で稼働中</span></div>
         <h3>見積 → 提案書パック</h3>
         <p class="for">→ 「見積を出すだけ」で終わりたくない社長に</p>
         <div class="ba">
@@ -315,7 +318,7 @@ h2{font-weight:900;font-size:clamp(24px,3.6vw,40px);line-height:1.4;color:#0ABAB
 
     <div class="pack-grid">
       <div class="pack">
-        <span class="pack-tag">あかり工務店で稼働中</span>
+        <div class="pack-head"><span class="pack-no">No.3</span><span class="pack-tag">あかり工務店で稼働中</span></div>
         <h3>現場写真 → ブログパック</h3>
         <p class="for">→ ブログが3ヶ月止まっている社長に</p>
         <div class="ba">
@@ -327,7 +330,7 @@ h2{font-weight:900;font-size:clamp(24px,3.6vw,40px);line-height:1.4;color:#0ABAB
         <p class="why">代行は月5万円〜が相場。1回払えば、あとは毎月0円。</p>
       </div>
       <div class="pack">
-        <span class="pack-tag">自社2アカウントで稼働中</span>
+        <div class="pack-head"><span class="pack-no">No.4</span><span class="pack-tag">自社2アカウントで稼働中</span></div>
         <h3>SNSまるごと自動投稿パック</h3>
         <p class="for">→ SNSが大事なのは分かっているけど続かない社長に</p>
         <div class="ba">
@@ -339,7 +342,7 @@ h2{font-weight:900;font-size:clamp(24px,3.6vw,40px);line-height:1.4;color:#0ABAB
         <p class="why">運用代行は年60万円〜。その2ヶ月分以下です。</p>
       </div>
       <div class="pack">
-        <span class="pack-tag">不動産・物件をあつかう方に</span>
+        <div class="pack-head"><span class="pack-no">No.5</span><span class="pack-tag">不動産・物件をあつかう方に</span></div>
         <h3>物件写真・動画パック</h3>
         <p class="for">→ 不動産も扱っていて、物件写真が山ほどある社長に</p>
         <div class="ba">
