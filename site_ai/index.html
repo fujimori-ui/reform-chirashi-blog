@@ -90,6 +90,20 @@ h2{font-weight:900;font-size:clamp(24px,3.6vw,40px);line-height:1.4;color:#0ABAB
 @media (max-width:760px){.monitor-box{flex-direction:column}.monitor-box .m-photo{width:100%}}
 .monitor-box p{font-size:14.5px;font-weight:500;line-height:2;margin:0;max-width:46em;color:#3D5B58}
 
+/* AI活用ブログ */
+.aiblog{background:#F1FAF9}
+.aiblog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:860px){.aiblog-grid{grid-template-columns:1fr}}
+.aiblog-card{display:flex;flex-direction:column;gap:8px;background:#fff;border:1px solid #DFF0EE;border-radius:18px;overflow:hidden;text-decoration:none;color:#123F3C;box-shadow:0 8px 20px rgba(10,186,181,.08);transition:transform .25s,box-shadow .25s}
+.aiblog-card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(10,186,181,.18)}
+.aiblog-card img{width:100%;aspect-ratio:1200/630;object-fit:cover;display:block}
+.aiblog-card .bd{display:flex;flex-direction:column;gap:6px;padding:14px 16px 18px}
+.aiblog-card .dt{font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:.1em;color:#6D8B88}
+.aiblog-card .tt{font-weight:900;font-size:15px;line-height:1.6}
+.aiblog-card:hover .tt{color:#0ABAB5}
+.sns-link{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14px;color:#0ABAB5;background:#E6F7F5;border:1px solid #C2E9E6;border-radius:999px;padding:10px 20px;text-decoration:none;transition:background .2s}
+.sns-link:hover{background:#DCEEFA}
+
 /* CTA */
 .cta-sec{background:#fff;text-align:center}
 .cta-box{background:#F1FAF9;border:1px solid #DFF0EE;border-radius:26px;padding:clamp(34px,5vw,56px);box-shadow:0 18px 40px rgba(10,186,181,.10)}
@@ -240,6 +254,34 @@ h2{font-weight:900;font-size:clamp(24px,3.6vw,40px);line-height:1.4;color:#0ABAB
     </div>
   </div>
 </section>
+
+<!-- AI活用ブログ(記事もAIが毎朝自動投稿。仕組み自体が実例) -->
+<section class="aiblog" id="aiblog" style="display:none">
+  <div class="wrap">
+    <p class="sec-label">BLOG</p>
+    <h2>時間のない社長のための、AI活用ブログ</h2>
+    <p class="sec-lead">下の記事は、<b>AIが毎朝自動で書いて、自動で公開したもの</b>です。この仕組みそのものが実例です。</p>
+    <div class="aiblog-grid" id="aiblog-list"></div>
+    <p style="margin-top:22px;margin-bottom:0"><a class="sns-link" href="https://jibulabo.jp/blog/ai/">📝 AI活用の記事をもっと読む</a></p>
+  </div>
+</section>
+<script>
+fetch('/blog/latest.json').then(function(r){return r.json();}).then(function(data){
+  var posts=(data.posts||[]).filter(function(p){return (p.tags||[]).indexOf('ai')>=0;}).slice(0,3);
+  if(!posts.length){return;}
+  var box=document.getElementById('aiblog-list');
+  posts.forEach(function(p){
+    var a=document.createElement('a');
+    a.className='aiblog-card';
+    a.href='https://jibulabo.jp'+p.url;
+    var img=p.image?'<img src="https://jibulabo.jp'+p.image+'" alt="" loading="lazy">':'';
+    a.innerHTML=img+'<span class="bd"><span class="dt">'+p.date+'</span><span class="tt"></span></span>';
+    a.querySelector('.tt').textContent=p.title;
+    box.appendChild(a);
+  });
+  document.getElementById('aiblog').style.display='';
+}).catch(function(){});
+</script>
 
 <!-- CTA -->
 <section class="cta-sec">
