@@ -1,3 +1,13 @@
+{% if page.tags contains "okane" %}
+<aside class="cta">
+  <p class="cta-title">資金繰りの安定を、専門家と</p>
+  <p>お金の悩みは、一人で抱えるほど重くなります。JibuLaboでは、小さな工務店の実情がわかる「経営に強い」税理士（国が認定する経営革新等支援機関の認定事務所）をご紹介しています。いまの税理士からの乗り換え相談や、「顧問料っていくらが普通？」という素朴な質問もOK。まずはLINEで一言どうぞ。</p>
+  <p class="cta-buttons">
+    <a class="btn btn-line" href="https://lin.ee/trP0HDw" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3C6.9 3 3 6.4 3 10.5c0 3.7 3.2 6.8 7.5 7.4.3.1.6.3.6.6l.3 1.8c.1.4.5.5.8.2l2.4-2.9c.1-.2.3-.2.5-.3C18.8 16.2 21 13.6 21 10.5 21 6.4 17.1 3 12 3Z" fill="currentColor"/></svg>LINEで「税理士」と送って相談</a>
+    <a class="btn btn-main" href="https://jibulabo.jp/#zeirishi" target="_blank" rel="noopener">税理士紹介サポートを見る</a>
+  </p>
+</aside>
+{% else %}
 <aside class="cta">
   <p class="cta-title">チラシで、地域から仕事をもらう</p>
   <p>この記事のような「地域密着の集客」を、神戸の工務店が10年つづけてきた方法として、まとめてお伝えしています。向き不向きもふくめて正直にお話ししますので、気になったらLINEでスタンプ1つ、送ってみてください。</p>
@@ -7,3 +17,4 @@
     <a class="btn btn-sub" href="https://shoseki.jibulabo.jp/" target="_blank" rel="noopener">書籍を無料でもらう📕</a>
   </p>
 </aside>
+{% endif %}
