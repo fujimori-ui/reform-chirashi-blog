@@ -64,6 +64,9 @@ h2{font-weight:900;font-size:clamp(24px,3.6vw,40px);line-height:1.4;color:#0ABAB
 .pack .gone{display:flex;flex-direction:column;gap:2px;background:#F1FAF9;border:1px solid #DCEFEC;border-radius:12px;padding:10px 14px;margin:0 0 14px;font-size:12.5px;font-weight:700;line-height:1.8}
 .pack .gone .gone-label{color:#E8756D;font-size:11.5px;letter-spacing:.08em}
 .pack .gone .gone-body{color:#6D8B88;text-decoration:line-through;text-decoration-color:rgba(232,117,109,.55);text-decoration-thickness:2px}
+.pack .gone-list{list-style:none;margin:2px 0 0;padding:0;display:flex;flex-direction:column;gap:4px}
+.pack .gone-list li{position:relative;padding-left:22px;line-height:1.7}
+.pack .gone-list li::before{content:"✕";position:absolute;left:2px;top:0;color:#E8756D;font-weight:800}
 .pack p.desc{font-size:14px;font-weight:500;line-height:1.95;margin:0;color:#3D5B58}
 
 /* 特徴・ポイント */
@@ -181,7 +184,10 @@ h2{font-weight:900;font-size:clamp(24px,3.6vw,40px);line-height:1.4;color:#0ABAB
         <h3>見積たたき台の作成</h3>
         <div class="gone">
           <span class="gone-label">なくなる時間</span>
-          <span class="gone-body">メモを見ながら2時間かけて入力していた時間</span>
+          <ul class="gone-list">
+            <li><span class="gone-body">メモを見ながら2時間かけて入力する時間</span></li>
+            <li><span class="gone-body">書式を整えて項目を並べ直す時間</span></li>
+          </ul>
         </div>
         <p class="desc">現場写真・メモを入れるだけで、<b>自社Excel書式の見積たたき台（下書き）が数分で完成</b>。金額や項目の最終チェックは社長が行い、直したいところだけ手を入れる形です。</p>
       </div>
@@ -191,7 +197,10 @@ h2{font-weight:900;font-size:clamp(24px,3.6vw,40px);line-height:1.4;color:#0ABAB
         <h3>見積 → 提案書たたき台の作成</h3>
         <div class="gone">
           <span class="gone-label">なくなる時間</span>
-          <span class="gone-body">提案資料を1件ずつ手づくりする時間</span>
+          <ul class="gone-list">
+            <li><span class="gone-body">提案資料を1件ずつ手づくりする時間</span></li>
+            <li><span class="gone-body">写真や図を貼り付けて体裁を整える時間</span></li>
+          </ul>
         </div>
         <p class="desc">見積PDFを入れるだけで、<b>ロゴ入りの提案書の下書きを自動作成</b>（ページ構成は御社の営業スタイルに合わせて調整します）。</p>
       </div>
@@ -201,7 +210,10 @@ h2{font-weight:900;font-size:clamp(24px,3.6vw,40px);line-height:1.4;color:#0ABAB
         <h3>WEB・SNS発信の下書き自動作成<br><small style="font-weight:700;font-size:12.5px;color:#3ECFC7">ブログ・Google・X・Threads・Instagram</small></h3>
         <div class="gone">
           <span class="gone-label">なくなる時間</span>
-          <span class="gone-body">帰宅後に30分かけてブログを書く時間、「今日何を投稿しようか」と毎日考える時間</span>
+          <ul class="gone-list">
+            <li><span class="gone-body">帰宅後に30分かけてブログを書く時間</span></li>
+            <li><span class="gone-body">「今日何を投稿しようか」と毎日考える時間</span></li>
+          </ul>
         </div>
         <p class="desc">現場写真を入れてクリックするだけで、<b>写真補正・ブログ記事・Google投稿文・各種SNSの投稿文まで自動で下書きを生成</b>。社長がワンクリックで承認してから投稿される流れなので、勝手に発信される心配はありません。</p>
       </div>
