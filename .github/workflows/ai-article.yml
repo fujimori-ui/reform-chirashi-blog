@@ -20,10 +20,13 @@ jobs:
         with:
           python-version: "3.12"
       - name: ライブラリを入れる
-        run: pip install anthropic pillow
+        run: |
+          pip install pillow
+          npm install -g @anthropic-ai/claude-code
       - name: AI活用の記事を1本作る
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          # APIキー課金ではなく定額プランのトークンで生成する(2026-08-06変更)
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
         run: python generate_article.py --ai
       - name: 記事をブログに反映する(push)
         run: |

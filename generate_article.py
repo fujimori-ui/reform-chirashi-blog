@@ -9,6 +9,7 @@ import argparse
 import json
 import os
 import re
+import subprocess
 import time
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -155,10 +156,18 @@ def today_jst():
     return time.strftime("%Y-%m-%d", time.gmtime(time.time() + 9 * 3600))
 
 
-def generate(topic, titles):
-    import anthropic
+def run_claude(prompt, system=None, timeout=600):
+    """claude CLI(定額プラン)で文章を生成する。APIキーではなく CLAUDE_CODE_OAUTH_TOKEN を使う。"""
+    cmd = ["claude", "-p", "--model", MODEL]
+    if system:
+        cmd += ["--append-system-prompt", system]
+    r = subprocess.run(cmd, input=prompt, capture_output=True, text=True, timeout=timeout)
+    if r.returncode != 0:
+        raise SystemExit(f"エラー: claudeの実行に失敗しました(exit {r.returncode}):\n{r.stderr[:800]}")
+    return r.stdout.strip()
 
-    client = anthropic.Anthropic()
+
+def generate(topic, titles):
     user_prompt = (
         f"今回の記事のテーマ: {topic['theme']}\n"
         f"切り口のヒント: {topic['hint']}\n"
@@ -175,34 +184,19 @@ def generate(topic, titles):
         system = SYSTEM_PROMPT_OKANE
     else:
         system = SYSTEM_PROMPT
-    resp = client.messages.create(
-        model=MODEL,
-        max_tokens=4096,
-        system=system,
-        messages=[{"role": "user", "content": user_prompt}],
-    )
-    # 応答には本文以外のブロック(思考メモ等)が混ざることがあるので、本文だけ取り出す
-    text = "".join(b.text for b in resp.content if getattr(b, "type", "") == "text")
-    if not text.strip():
-        raise SystemExit(f"エラー: 本文ブロックが空でした。stop_reason={resp.stop_reason}")
-    return text.strip()
+    text = run_claude(user_prompt, system=system)
+    if not text:
+        raise SystemExit("エラー: 本文が空でした。")
+    return text
 
 
 def make_illustration(title, desc, slug):
     """記事の内容に合う手描きタッチのイラストを選んで、ブランド背景に合成する。"""
-    import anthropic
-
     catalog = load_json(os.path.join(HERE, "illust_catalog.json"), {})
     if not catalog:
         raise ValueError("illust_catalog.json が見つかりません")
     lines = "\n".join(f"- {k}: {v}" for k, v in catalog.items())
-    client = anthropic.Anthropic()
-    resp = client.messages.create(
-        model=MODEL,
-        max_tokens=50,
-        messages=[{"role": "user", "content": ILLUST_PROMPT.format(title=title, desc=desc, catalog=lines)}],
-    )
-    name = "".join(b.text for b in resp.content if getattr(b, "type", "") == "text").strip()
+    name = run_claude(ILLUST_PROMPT.format(title=title, desc=desc, catalog=lines), timeout=300)
     if name not in catalog:
         hits = [k for k in catalog if k in name]  # 出力に余計な語が付いた場合の救済
         if not hits:
