@@ -163,7 +163,10 @@ def run_claude(prompt, system=None, timeout=600):
         cmd += ["--append-system-prompt", system]
     r = subprocess.run(cmd, input=prompt, capture_output=True, text=True, timeout=timeout)
     if r.returncode != 0:
-        raise SystemExit(f"エラー: claudeの実行に失敗しました(exit {r.returncode}):\n{r.stderr[:800]}")
+        raise SystemExit(
+            f"エラー: claudeの実行に失敗しました(exit {r.returncode}):\n"
+            f"[stdout]\n{r.stdout[:800]}\n[stderr]\n{r.stderr[:800]}"
+        )
     return r.stdout.strip()
 
 
