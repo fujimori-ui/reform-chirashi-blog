@@ -156,11 +156,18 @@ def today_jst():
     return time.strftime("%Y-%m-%d", time.gmtime(time.time() + 9 * 3600))
 
 
+OUTPUT_GUARD = """
+## 出力ルール(厳守)
+- ツール(ファイル作成・編集・コマンド実行など)は一切使わない。
+- 前置き・後書き・状況説明(「〜を出力します」等)は書かない。
+- 依頼された形式のテキストだけを、1行目から直接出力する。
+"""
+
+
 def run_claude(prompt, system=None, timeout=600):
     """claude CLI(定額プラン)で文章を生成する。APIキーではなく CLAUDE_CODE_OAUTH_TOKEN を使う。"""
     cmd = ["claude", "-p", "--model", MODEL]
-    if system:
-        cmd += ["--append-system-prompt", system]
+    cmd += ["--append-system-prompt", (system or "") + OUTPUT_GUARD]
     r = subprocess.run(cmd, input=prompt, capture_output=True, text=True, timeout=timeout)
     if r.returncode != 0:
         raise SystemExit(

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "見積書だけで負けていませんか。AIで提案書をつくる方法"
-description: "---"
+description: "相見積もりで価格だけの勝負にならないために。見積書に一手間加えて「ていねいな提案書」をつくる、AIのやさしい使い方をご紹介します。"
 image: /assets/images/eyecatch/ai-teiansho.png
 tags: [ai]
 ---
