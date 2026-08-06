@@ -159,8 +159,9 @@ def today_jst():
 OUTPUT_GUARD = """
 ## 出力ルール(厳守)
 - ツール(ファイル作成・編集・コマンド実行など)は一切使わない。
-- 前置き・後書き・状況説明(「〜を出力します」等)は書かない。
-- 依頼された形式のテキストだけを、1行目から直接出力する。
+- 前置き・後書き・状況説明(「〜を出力します」「題材が確定しているので記事を作成します」等)は一切書かない。
+- 考え中のメモやタイトル案の列挙も書かない。決定した1つだけを出力する。
+- 出力の1行目は、必ず記事タイトルそのものにする。
 """
 
 
@@ -218,18 +219,26 @@ def make_illustration(title, desc, slug):
 
 
 def parse_output(raw):
-    """出力を タイトル/説明/本文 に分ける。"""
+    """出力を タイトル/説明/本文 に分ける。
+
+    「題材が確定しているので、直接記事を作成します。」のような前置きが
+    タイトルの前に混ざることがあるため、区切り(---)の直前の2行を
+    タイトル・説明として拾う(前置きは自然に捨てられる)。
+    """
     text = raw.strip()
     text = re.sub(r"^```(?:markdown)?\s*|\s*```$", "", text)  # 万一のコードブロック除去
     lines = text.split("\n")
     if len(lines) < 4:
         raise SystemExit(f"エラー: 出力が短すぎます:\n{text[:200]}")
-    title = lines[0].strip().lstrip("#").strip()
-    desc = lines[1].strip()
-    rest = lines[2:]
-    if rest[0].strip() == "---":
-        rest = rest[1:]
-    body = "\n".join(rest).strip()
+    sep = next((i for i, l in enumerate(lines) if l.strip() == "---"), None)
+    head = [l.strip().lstrip("#").strip() for l in lines[:sep] if l.strip()] if sep else []
+    if len(head) >= 2:
+        title, desc = head[-2], head[-1]
+        body = "\n".join(lines[sep + 1:]).strip()
+    else:  # ---が無い場合は従来どおり1行目=タイトル、2行目=説明とみなす
+        title = lines[0].strip().lstrip("#").strip()
+        desc = lines[1].strip()
+        body = "\n".join(lines[2:]).strip()
     if not title or not body:
         raise SystemExit("エラー: タイトルまたは本文が空です。")
     return title, desc, body
