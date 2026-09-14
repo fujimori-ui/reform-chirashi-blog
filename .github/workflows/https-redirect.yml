@@ -1,0 +1,30 @@
+name: https-redirect
+
+# jibulabo.jp の .htaccess に http→https 自動転送を入れる(手動実行のみ)。
+# 元の .htaccess はサーバー上に .htaccess.bak_日付 として控えを残す。
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  redirect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: .htaccess に https 転送を追加する
+        env:
+          FTP_HOST: sv17104.xserver.jp
+          FTP_USER: jibulabo2026
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_TARGET_DIR: /jibulabo.jp/public_html
+        run: python set_https_redirect.py
+      - name: 転送を確認する
+        run: |
+          for u in http://jibulabo.jp/ http://www.jibulabo.jp/; do
+            curl -s -o /dev/null -w "$u -> %{http_code} %{redirect_url}\n" "$u"
+          done
