@@ -9,17 +9,18 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap">
 <style>
   :root{
-    --bg:#f6f7f9; --card:#ffffff; --fg:#1f2933; --muted:#5c6773;
-    --line:#d9dee5; --accent:#c8102e; --accent-dark:#9e0c24; --soft:#fff3f4;
+    --bg:#ffffff; --card:#ffffff; --fg:#14284b; --muted:#4a5a78;
+    --line:#d3dae6; --accent:#14284b; --accent-dark:#0b1a33; --soft:#eef3fa; --navy:#14284b; --sky:#8fc3ef;
     --font:"Noto Sans JP","Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
   }
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);font-size:16px;line-height:1.8}
   .wrap{max-width:640px;margin:0 auto;padding:16px 16px 48px}
-  .eyebrow{display:inline-block;background:var(--fg);color:#fff;font-size:13px;font-weight:700;padding:4px 10px;border-radius:4px;letter-spacing:.04em}
+  .hero{background:var(--navy);color:#fff;border-radius:12px;padding:22px 20px;margin-bottom:20px}
+  .eyebrow{display:inline-block;background:#fff;color:var(--navy);font-size:13px;font-weight:700;padding:4px 10px;border-radius:4px;letter-spacing:.04em}
   h1{font-size:clamp(22px,6vw,34px);font-weight:900;line-height:1.3;margin:12px 0 4px;text-wrap:balance}
-  h1 .red{color:var(--accent)}
-  .sub{color:var(--muted);font-weight:700;margin:0 0 20px}
+  h1 .red{color:var(--sky);white-space:nowrap}
+  .sub{color:#dbe6f5;font-weight:700;margin:0}
   .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;margin-bottom:20px}
   h2{font-size:18px;font-weight:900;margin:0 0 12px;padding-left:10px;border-left:5px solid var(--accent);line-height:1.4}
   dl{margin:0;display:grid;grid-template-columns:6em 1fr;gap:8px 12px}
@@ -56,9 +57,11 @@
 <body>
 <div class="wrap">
 
+  <header class="hero">
   <span class="eyebrow">少人数工務店・リフォーム店向けセミナー</span>
   <h1><span class="red">今、1人リフォーム店</span>が儲かる！<br>東京セミナー</h1>
   <p class="sub">実際の工務店社長がお話しします／2026年11月中旬 東京駅近くで開催／全国からZOOM参加OK／定員10名様</p>
+  </header>
 
   <div class="card">
     <h2>開催概要</h2>
