@@ -55,10 +55,7 @@
   dt{font-weight:900;color:var(--navy);background:var(--soft);border-radius:6px;text-align:center;padding:2px 4px;font-size:14px;line-height:1.7;margin-top:2px}
   dd{margin:0;line-height:1.75}
   dd small{display:block;font-size:13px;color:var(--muted);line-height:1.6}
-  .ul{font-weight:700;color:var(--navy);padding-bottom:3px;background:linear-gradient(var(--sky),var(--sky)) no-repeat 0 100%/0% 4px;transition:background-size .9s cubic-bezier(.2,.7,.2,1)}
-  .card.on .ul{background-size:100% 4px}
-  dd:nth-of-type(1) .ul{transition-delay:.2s}dd:nth-of-type(2) .ul{transition-delay:.45s}dd:nth-of-type(3) .ul{transition-delay:.7s}
-  dd:nth-of-type(4) .ul{transition-delay:.95s}dd:nth-of-type(5) .ul{transition-delay:1.2s}dd:nth-of-type(6) .ul{transition-delay:1.45s}
+  .ul{font-weight:700;color:var(--navy)}
   .zoom{background:var(--soft);border:1px dashed var(--accent);border-radius:8px;padding:10px 14px;font-weight:700;margin-top:14px}
   ul.check{list-style:none;padding:0;margin:0}
   ul.fit{list-style:none;padding:0;margin:0;display:grid;gap:8px}
@@ -66,12 +63,16 @@
   ul.fit li::before{content:"✓";position:absolute;left:12px;top:50%;transform:translateY(-50%);width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-size:13px;font-weight:900;display:flex;align-items:center;justify-content:center}
   ul.fit b{color:var(--navy);font-weight:900;background:linear-gradient(transparent 62%,rgba(240,131,0,.28) 62%)}
   .naiyo,.tokuten{margin-top:14px;border-radius:10px;padding:14px;font-size:15px;line-height:1.6}
-  .naiyo{border:2px solid var(--navy);background:#fff}
-  .nhead,.thead{font-weight:900;color:var(--navy);line-height:1.5}
+  .naiyo{background:linear-gradient(135deg,#192142,#1f2c5c);color:#fff;padding:16px 14px 14px}
+  .nhead,.thead{font-weight:900;line-height:1.5}
+  .nhead{color:#fff;text-align:center}
   .nhead span,.thead span{display:inline-block;color:#fff;font-size:12px;font-weight:900;padding:2px 12px;border-radius:999px;margin-right:8px;vertical-align:2px}
-  .nhead span{background:var(--navy)}
-  .nlist{list-style:none;padding:0;margin:10px 0 0;display:flex;flex-wrap:wrap;gap:8px}
-  .nlist li{background:var(--navy);color:#fff;font-weight:900;font-size:15px;padding:7px 16px;border-radius:999px;letter-spacing:.02em}
+  .nhead span{background:var(--sky);color:var(--navy);display:block;width:max-content;margin:0 auto 6px}
+  .nlist{list-style:none;padding:0;margin:12px 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .nlist li{position:relative;background:#fff;color:var(--navy);border-radius:10px;padding:14px 6px 12px;text-align:center;font-weight:900;font-size:14px;line-height:1.35;box-shadow:0 4px 10px rgba(0,0,0,.18)}
+  .nlist i{display:block;font-style:normal;font-size:28px;line-height:1;margin-bottom:6px}
+  .nlist b{display:block;color:var(--sky);font-size:11px;letter-spacing:.14em;margin-bottom:2px}
+  .thead{color:var(--navy)}
   .tokuten{background:linear-gradient(135deg,#fff7ec,#fff1dc);border:2px solid #f08300;position:relative}
   .thead span{background:#f08300}
   .tbody{display:flex;align-items:center;gap:14px;margin-top:12px}
@@ -81,7 +82,7 @@
   .tbody .t1 b{color:#d9530b;font-weight:900;background:linear-gradient(transparent 62%,rgba(240,131,0,.28) 62%)}
   .tbody .t2{margin-top:8px;font-weight:700;color:var(--navy);background:#fff;border-radius:999px;display:inline-block;padding:3px 12px;font-size:14px}
   .tokuten br.pc{display:none}
-  @media (min-width:560px){.tbody img{width:160px}.tokuten br.pc{display:inline}.nlist li{font-size:16px}}
+  @media (min-width:560px){.tbody img{width:160px}.tokuten br.pc{display:inline}.nlist{gap:12px}.nlist li{font-size:17px;padding:16px 8px 14px}.nlist li br{display:none}.nlist i{font-size:34px}.naiyo{padding:18px 18px 16px}}
 
   ul.learn{list-style:none;padding:0;margin:0;display:grid;gap:8px}
   ul.learn li{display:flex;align-items:center;gap:12px;background:var(--soft);border-radius:8px;padding:10px 14px;font-weight:700}
@@ -184,7 +185,11 @@
     </ul>
     <div class="naiyo">
       <div class="nhead"><span>セミナー内容</span>地域密着の少人数リフォーム工務店のための</div>
-      <ul class="nlist"><li>集客方法</li><li>効率的な働き方</li><li>必要なマインド</li></ul>
+      <ul class="nlist">
+        <li><i>📣</i><b>01</b>集客方法</li>
+        <li><i>⏱️</i><b>02</b>効率的な<br>働き方</li>
+        <li><i>🔥</i><b>03</b>必要な<br>マインド</li>
+      </ul>
     </div>
     <div class="tokuten">
       <div class="thead"><span>参加特典</span>🎁 ご参加の方全員にプレゼント</div>
