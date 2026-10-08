@@ -56,6 +56,16 @@
   dd{margin:0}
   .zoom{background:var(--soft);border:1px dashed var(--accent);border-radius:8px;padding:10px 14px;font-weight:700;margin-top:14px}
   ul.check{list-style:none;padding:0;margin:0}
+  ul.fit{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+  ul.fit li{position:relative;background:var(--soft);border-radius:8px;padding:10px 12px 10px 44px;font-size:15px;line-height:1.55}
+  ul.fit li::before{content:"✓";position:absolute;left:12px;top:50%;transform:translateY(-50%);width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-size:13px;font-weight:900;display:flex;align-items:center;justify-content:center}
+  ul.fit b{color:var(--navy);font-weight:900;background:linear-gradient(transparent 62%,rgba(240,131,0,.28) 62%)}
+  .naiyo,.tokuten{margin-top:14px;border-radius:8px;padding:12px 14px;font-size:15px;line-height:1.6}
+  .naiyo{border:2px solid var(--navy);font-weight:700}
+  .tokuten{background:#fff4e6;border:2px solid #f08300}
+  .naiyo span,.tokuten span{display:inline-block;color:#fff;font-size:12px;font-weight:900;padding:1px 10px;border-radius:999px;margin-right:8px;vertical-align:1px}
+  .naiyo span{background:var(--navy)}.tokuten span{background:#f08300}
+
   ul.learn{list-style:none;padding:0;margin:0;display:grid;gap:8px}
   ul.learn li{display:flex;align-items:center;gap:12px;background:var(--soft);border-radius:8px;padding:10px 14px;font-weight:700}
   ul.learn b{flex:none;color:#fff;background:var(--navy);border-radius:6px;font-size:13px;padding:2px 7px}
@@ -145,18 +155,18 @@
 
   <div class="card">
     <h2>こんな方におすすめ</h2>
-    <ul class="check">
-      <li>下請けから脱却したい方</li>
-      <li>他のリフォーム会社とずっと張り合っていけるのか不安な方</li>
-      <li>1人社長・1人親方なので動く時間が作れず困っている方</li>
-      <li>チラシの作り方・チラシ集客がわからない方</li>
-      <li>忙しい時は集客を考えず暇になった時に考え後悔する方</li>
-      <li>地域密着の始め方・やり方がわからない方</li>
-      <li>二代目さん、もしくは二代目に引き継ぎたい先代社長</li>
-      <li>独立起業して間もない方</li>
+    <ul class="fit">
+      <li><b>下請けから脱却</b>したい</li>
+      <li>他社と<b>ずっと張り合っていけるか</b>不安</li>
+      <li>1人社長・1人親方で<b>動く時間がない</b></li>
+      <li><b>チラシの作り方・集客</b>がわからない</li>
+      <li>暇になってから集客を考えて<b>後悔</b>しがち</li>
+      <li><b>地域密着</b>の始め方がわからない</li>
+      <li><b>二代目</b>さん・<b>引き継ぎ</b>を考える先代社長</li>
+      <li><b>独立</b>して間もない</li>
     </ul>
-    <p style="margin:14px 0 0;font-weight:700">内容：地域密着少数リフォーム工務店の有効な集客方法・効率的な働き方・必要なマインド</p>
-    <p style="margin:6px 0 0;font-size:15px">☆特典：毎回30件以上反響を獲得している実際のチラシと会社概要をプレゼント！ お悩み相談も実施します。</p>
+    <div class="naiyo"><span>内容</span>地域密着の少人数リフォーム工務店のための<br>集客方法・効率的な働き方・必要なマインド</div>
+    <div class="tokuten"><span>特典</span>毎回30件以上の反響が出ている<b>実際のチラシと会社概要</b>をプレゼント！ お悩み相談も実施します。</div>
   </div>
 
   <div class="card">
