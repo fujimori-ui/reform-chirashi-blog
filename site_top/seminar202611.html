@@ -37,12 +37,13 @@
   .hbook span{font-size:11.5px;font-weight:700;line-height:1.5}
   .hbook b{display:block;color:var(--sky);font-size:11px;letter-spacing:.1em}
   .hbook em.nwr{font-style:normal;white-space:nowrap;display:inline}
-  .hero>.badge.sp{position:absolute;right:14px;top:12px;left:auto}
+  .hero>.badge.sp{position:absolute;right:12px;top:10px;left:auto;width:88px;height:88px;font-size:14px;line-height:1.25;border-width:3px}
+  .hero .eyebrow{max-width:calc(100% - 92px)}
   .hero-photo .badge{display:none}
   .hero-foot{background:#fff;color:#192142;margin:0 -20px;padding:7px 10px;text-align:center;font-size:12px;font-weight:700}
   h1 .nw{white-space:nowrap}
   .last{display:inline-block;background:#f08300;color:#fff;font-size:15px;font-weight:900;padding:4px 14px;border-radius:6px;margin-bottom:6px;letter-spacing:.04em}
-  @media (min-width:560px){.hero>.badge.sp{display:none}.hero-photo .badge{display:flex}.hero-row{justify-content:stretch;column-gap:0}.hero{padding:24px 32px 0}.chips{font-size:15px}.hero-row{grid-template-columns:1fr 34%;margin-top:-6px}.hero-photo{margin-right:-32px}.hero-foot{margin:0 -32px;font-size:14px}.hero-row{grid-template-columns:1fr 132px 34%;grid-template-areas:"chips book photo"}.hbook{display:block;margin:0 0 22px;padding:0;background:none;border:0;text-align:center}.hbook img{width:104px;margin:0 auto;transform:rotate(-4deg);box-shadow:0 8px 20px rgba(0,0,0,.45)}.hbook span{display:block;margin-top:10px;font-size:11px;line-height:1.45}.hbook b{font-size:11px}.hbook i{display:none}.hbook br.pc{display:inline}.badge{width:96px;height:96px;font-size:13px;right:-2%;left:auto;top:-18%}}
+  @media (min-width:560px){.hero .eyebrow{max-width:none}.spbr{display:none}.hero>.badge.sp{display:none}.hero-photo .badge{display:flex}.hero-row{justify-content:stretch;column-gap:0}.hero{padding:24px 32px 0}.chips{font-size:15px}.hero-row{grid-template-columns:1fr 34%;margin-top:-6px}.hero-photo{margin-right:-32px}.hero-foot{margin:0 -32px;font-size:14px}.hero-row{grid-template-columns:1fr 132px 34%;grid-template-areas:"chips book photo"}.hbook{display:block;margin:0 0 22px;padding:0;background:none;border:0;text-align:center}.hbook img{width:104px;margin:0 auto;transform:rotate(-4deg);box-shadow:0 8px 20px rgba(0,0,0,.45)}.hbook span{display:block;margin-top:10px;font-size:11px;line-height:1.45}.hbook b{font-size:11px}.hbook i{display:none}.hbook br.pc{display:inline}.badge{width:96px;height:96px;font-size:13px;right:-2%;left:auto;top:-18%}}
   .eyebrow{display:block;color:#fff;font-size:13px;font-weight:700;letter-spacing:.04em;line-height:1.5}
   h1{font-size:clamp(25px,7.2vw,40px);font-weight:900;line-height:1.28;margin:6px 0 4px;letter-spacing:-.01em}
   h1 .red{color:var(--sky);white-space:nowrap}
@@ -108,7 +109,7 @@
   <header class="hero">
     <span class="last">2026年 最後のセミナー</span>
     <div class="badge sp">全国から<br>ZOOM<br>参加OK！</div>
-    <span class="eyebrow">少人数工務店・リフォーム店向けセミナー</span>
+    <span class="eyebrow">少人数工務店・<br class="spbr">リフォーム店向けセミナー</span>
     <h1><span class="red">今、1人リフォーム店</span><span class="nw">が儲かる！</span><span class="nw">東京セミナー</span></h1>
     <div class="hero-row">
       <ul class="chips">
