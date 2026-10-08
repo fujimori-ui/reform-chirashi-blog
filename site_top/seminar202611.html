@@ -17,7 +17,7 @@
   body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);font-size:16px;line-height:1.8}
   .wrap{max-width:640px;margin:0 auto;padding:16px 16px 48px}
   .hero{position:relative;overflow:hidden;color:#fff;border-radius:14px;padding:22px 20px 0;margin-bottom:20px;
-    background:linear-gradient(112deg,#192142 0 58%,#262f66 58% 100%)}
+    background:linear-gradient(112deg,#192142 0 58%,#1f2c5c 58% 100%)}
   .hero>*{position:relative}
   .hero-row{display:grid;grid-template-columns:1fr 54%;align-items:end;gap:0;margin-top:4px}
   .chips{list-style:none;margin:0 0 20px;padding:0;display:grid;gap:9px;font-size:13.5px;font-weight:700;line-height:1.45}
@@ -32,9 +32,8 @@
   .hero-photo figcaption small{display:block;font-size:10px;font-weight:700;letter-spacing:.02em;color:#dbe6f5}
   .hero-foot{background:#fff;color:#192142;margin:0 -20px;padding:7px 10px;text-align:center;font-size:12px;font-weight:700}
   h1 .nw{white-space:nowrap}
-  h1 .yr{font-size:.72em;display:block;margin-top:4px}
-  h1 .yr em{font-style:normal;background:#f08300;border-radius:6px;padding:0 8px;margin-right:6px}
-  @media (min-width:560px){.hero{padding:32px 32px 0}.chips{font-size:16px}.hero-row{grid-template-columns:1fr 44%}.hero-photo{margin-right:-32px}.hero-foot{margin:0 -32px;font-size:14px}.badge{width:100px;height:100px;font-size:14px;right:12%}}
+  .last{display:inline-block;background:#f08300;color:#fff;font-size:15px;font-weight:900;padding:4px 14px;border-radius:6px;margin-bottom:10px;letter-spacing:.04em}
+  @media (min-width:560px){.hero{padding:32px 32px 0}.chips{font-size:16px}.hero-row{grid-template-columns:1fr 44%}.hero-photo{margin-right:-32px}.hero-foot{margin:0 -32px;font-size:14px}.badge{width:100px;height:100px;font-size:14px;right:auto;left:-28%;top:38%}}
   .eyebrow{display:block;color:#fff;font-size:13px;font-weight:700;letter-spacing:.04em;line-height:1.5}
   h1{font-size:clamp(25px,7.2vw,40px);font-weight:900;line-height:1.28;margin:6px 0 4px;letter-spacing:-.01em}
   h1 .red{color:var(--sky);white-space:nowrap}
@@ -51,7 +50,7 @@
   ul.check li{padding-left:1.6em;position:relative;margin-bottom:4px}
   ul.check li::before{content:"✔";color:var(--accent);position:absolute;left:0;font-weight:900}
   .speaker{display:grid;grid-template-columns:120px 1fr;gap:12px 14px;align-items:start}
-  .speaker img{width:120px;max-width:100%;border-radius:8px;background:#eef1f5}
+  .speaker img{width:120px;max-width:100%;border-radius:8px;background:#fff}
   .speaker img.book{border:1px solid var(--line);background:#fff}
   .speaker p{margin:0;min-width:0;font-size:15px}
   .speaker p.full{grid-column:1/-1;border-top:1px solid var(--line);padding-top:12px}
@@ -80,8 +79,9 @@
 <div class="wrap">
 
   <header class="hero">
+    <span class="last">2026年 最後の東京セミナー</span>
     <span class="eyebrow">少人数工務店・リフォーム店向けセミナー</span>
-    <h1><span class="red">今、1人リフォーム店</span><span class="nw">が儲かる！</span><span class="yr"><em>2026年 最後の</em>東京セミナー</span></h1>
+    <h1><span class="red">今、1人リフォーム店</span><span class="nw">が儲かる！</span></h1>
     <div class="hero-row">
       <ul class="chips">
         <li><b>講師</b>実際の<span style="white-space:nowrap">工務店社長が</span><br>お話しします</li>
@@ -92,7 +92,7 @@
       <figure class="hero-photo">
         <img src="seminar202611_hero.png" alt="講師 平野佑允">
         <div class="badge">全国から<br>ZOOM<br>参加OK！</div>
-        <figcaption><small>（有）平野工務店 代表</small>平野 佑允</figcaption>
+        <figcaption><small>有限会社平野工務店 代表</small>平野 佑允</figcaption>
       </figure>
     </div>
     <div class="hero-foot">一般社団法人 5000世帯からはじめるリフォーム経営塾</div>
@@ -140,8 +140,8 @@
   <div class="card">
     <h2>講師</h2>
     <div class="speaker">
-      <img src="seminar202611_hirano_chest.png" alt="講師 平野佑允">
-      <p><strong>（有）平野工務店 代表 平野 佑允（ヒラノ ユウスケ）</strong><br>下請け脱却に成功した現役工務店社長。同文舘出版から工務店経営の本を出版。</p>
+      <img src="seminar202611_hirano_white.jpg" alt="講師 平野佑允">
+      <p><strong>有限会社平野工務店<br>代表 平野 佑允</strong><br>下請け脱却に成功した現役工務店社長。同文舘出版から工務店経営の本を出版。</p>
       <img src="seminar202611_book.jpg" alt="書籍 徹底して地域密着で儲ける経営" class="book">
       <p><strong>著書</strong><br>『小さなリフォーム工務店・ひとり親方の徹底して地域密着で儲ける経営』（同文舘出版）<br><small>建設業界アマゾン書籍ランキング1位獲得。小さな工務店のための経営教科書。</small></p>
     </div>
