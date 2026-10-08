@@ -19,7 +19,9 @@
   .hero{position:relative;overflow:hidden;color:#fff;border-radius:14px;padding:16px 20px 0;margin-bottom:20px;
     background:linear-gradient(112deg,#192142 0 58%,#1f2c5c 58% 100%)}
   .hero>*{position:relative}
-  .hero-row{display:grid;grid-template-columns:1fr 47%;align-items:end;gap:0;margin-top:0}
+  .hero-row{display:grid;grid-template-columns:1fr 47%;grid-template-areas:"chips photo" "book book";align-items:end;gap:0;margin-top:0}
+  .chips{grid-area:chips}.hero-photo{grid-area:photo}.hbook{grid-area:book}
+  .hbook i{font-style:normal}.hbook br.pc{display:none}
   .chips{list-style:none;margin:0 0 14px;padding:0;display:grid;gap:6px;font-size:13.5px;font-weight:700;line-height:1.45}
   .chips li{border-left:3px solid var(--sky);padding-left:9px}
   .chips b{display:block;color:var(--sky);font-size:11px;letter-spacing:.12em}
@@ -30,10 +32,14 @@
   .hero-photo figcaption{position:absolute;left:6%;right:10%;bottom:0;text-align:center;font-weight:900;font-size:15px;letter-spacing:.08em;line-height:1.25;
     background:rgba(25,33,66,.9);border-top:2px solid var(--sky);padding:4px 4px 6px}
   .hero-photo figcaption small{display:block;white-space:nowrap;font-size:9px;font-weight:700;letter-spacing:.02em;color:#dbe6f5}
+  .hbook{display:flex;align-items:center;gap:12px;margin:0 -20px;padding:10px 20px;background:rgba(0,0,0,.22);border-top:1px solid rgba(255,255,255,.15);animation:up .8s .9s ease-out both}
+  .hbook img{width:52px;height:auto;flex:none;box-shadow:0 4px 10px rgba(0,0,0,.45)}
+  .hbook span{font-size:12px;font-weight:700;line-height:1.5}
+  .hbook b{display:block;color:var(--sky);font-size:11px;letter-spacing:.1em}
   .hero-foot{background:#fff;color:#192142;margin:0 -20px;padding:7px 10px;text-align:center;font-size:12px;font-weight:700}
   h1 .nw{white-space:nowrap}
   .last{display:inline-block;background:#f08300;color:#fff;font-size:15px;font-weight:900;padding:4px 14px;border-radius:6px;margin-bottom:6px;letter-spacing:.04em}
-  @media (min-width:560px){.hero{padding:24px 32px 0}.chips{font-size:15px}.hero-row{grid-template-columns:1fr 34%;margin-top:-6px}.hero-photo{margin-right:-32px}.hero-foot{margin:0 -32px;font-size:14px}.badge{width:100px;height:100px;font-size:14px;right:auto;left:-28%;top:38%}}
+  @media (min-width:560px){.hero{padding:24px 32px 0}.chips{font-size:15px}.hero-row{grid-template-columns:1fr 34%;margin-top:-6px}.hero-photo{margin-right:-32px}.hero-foot{margin:0 -32px;font-size:14px}.hero-row{grid-template-columns:1fr 132px 34%;grid-template-areas:"chips book photo"}.hbook{display:block;margin:0 0 22px;padding:0;background:none;border:0;text-align:center}.hbook img{width:104px;margin:0 auto;transform:rotate(-4deg);box-shadow:0 8px 20px rgba(0,0,0,.45)}.hbook span{display:block;margin-top:10px;font-size:11px;line-height:1.45}.hbook b{font-size:11px}.hbook i{display:none}.hbook br.pc{display:inline}.badge{width:96px;height:96px;font-size:13px;right:4%;left:auto;top:4%}}
   .eyebrow{display:block;color:#fff;font-size:13px;font-weight:700;letter-spacing:.04em;line-height:1.5}
   h1{font-size:clamp(25px,7.2vw,40px);font-weight:900;line-height:1.28;margin:6px 0 4px;letter-spacing:-.01em}
   h1 .red{color:var(--sky);white-space:nowrap}
@@ -112,6 +118,7 @@
         <div class="badge">全国から<br>ZOOM<br>参加OK！</div>
         <figcaption><small>有限会社平野工務店 代表</small>平野 佑允</figcaption>
       </figure>
+      <div class="hbook"><img src="seminar202611_book.jpg" alt="平野佑允の著書"><span><b>ベストセラー著書</b><i>小さな工務店のための経営教科書<br></i>アマゾン書籍ランキング<br class="pc"> 建設業界1位獲得</span></div>
     </div>
     <div class="hero-foot">一般社団法人 5000世帯からはじめるリフォーム経営塾</div>
   </header>
