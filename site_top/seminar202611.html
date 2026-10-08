@@ -72,6 +72,24 @@
   .lineok small{display:block;font-weight:400;font-size:13px;color:#fff}
   .tel{text-align:center;font-size:14px;color:var(--muted);margin-top:24px}
   .tel a{color:var(--fg);font-weight:900;font-size:20px;text-decoration:none}
+  /* animation */
+  @keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+  @keyframes slideIn{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:none}}
+  @keyframes pop{0%{opacity:0;transform:scale(.4)}70%{opacity:1;transform:scale(1.08)}100%{transform:scale(1)}}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+  @keyframes pulse{0%,100%{box-shadow:0 4px 0 #c46a00,0 0 0 0 rgba(240,131,0,.5)}60%{box-shadow:0 4px 0 #c46a00,0 0 0 12px rgba(240,131,0,0)}}
+  @keyframes shine{0%,70%{left:-60%}100%{left:130%}}
+  .hero .last,.hero .eyebrow,.hero h1,.hero .chips li{animation:up .7s ease-out both}
+  .hero .eyebrow{animation-delay:.12s}.hero h1{animation-delay:.24s}
+  .hero .chips li:nth-child(1){animation-delay:.45s}.hero .chips li:nth-child(2){animation-delay:.55s}.hero .chips li:nth-child(3){animation-delay:.65s}.hero .chips li:nth-child(4){animation-delay:.75s}
+  .hero-photo{animation:slideIn .9s .3s ease-out both}
+  .badge{animation:pop .6s 1s ease-out both,float 3s 1.6s ease-in-out infinite}
+  .last{position:relative;overflow:hidden}
+  .last::after{content:"";position:absolute;top:0;bottom:0;width:40%;left:-60%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);animation:shine 3.5s 1.2s ease-in-out infinite}
+  .btn{animation:pulse 2.2s ease-out infinite}
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease-out,transform .7s ease-out}
+  .reveal.on{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
   input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);outline-offset:1px}
 </style>
 </head>
@@ -108,7 +126,7 @@
       <dt>締切</dt><dd>定員（10名様）になり次第締切</dd>
       <dt>主催</dt><dd>一般社団法人 5000世帯からはじめるリフォーム経営塾</dd>
     </dl>
-    <div class="zoom">💻 遠方の方は全国どこからでもZOOMでご参加いただけます。参加用URLはお申込み後にメールでお送りします。</div>
+    <div class="zoom">💻 遠方の方は全国どこからでもZOOMでご参加いただけます。参加用URLはお申込み後にLINEでお送りします。</div>
   </div>
 
   <div class="card">
@@ -154,14 +172,13 @@
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_next" value="https://www.jibulabo.jp/seminar202611_thanks.html">
-      <input type="hidden" name="_autoresponse" value="東京セミナー「今、1人リフォーム店が儲かる！」へのお申込みありがとうございます。内容を確認のうえ、担当フジモリより会場のご案内（ZOOMの方は参加用URL）を改めてお送りします。2営業日たっても連絡がない場合は、お手数ですが06-7878-8167までお電話ください。 一般社団法人5000世帯からはじめるリフォーム経営塾／（株）ジブラボ 藤森">
       <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
       <input type="hidden" name="セミナー" value="2026年11月 東京セミナー">
 
       <label>参加方法<span class="req">必須</span></label>
       <div class="radios">
         <label><input type="radio" name="参加方法" value="会場（東京駅近く）" id="way1" required> 会場で参加（東京駅近く）</label>
-        <label><input type="radio" name="参加方法" value="ZOOM" id="way2"> <span>ZOOMで参加<small>全国どこからでもOK。URLはメールでお送りします</small></span></label>
+        <label><input type="radio" name="参加方法" value="ZOOM" id="way2"> <span>ZOOMで参加<small>全国どこからでもOK。URLはLINEでお送りします</small></span></label>
       </div>
 
       <label for="company">会社名・屋号<span class="req">必須</span></label>
@@ -170,22 +187,21 @@
       <label for="name">お名前<span class="req">必須</span></label>
       <input type="text" id="name" name="お名前" required placeholder="山田 太郎" autocomplete="name">
 
-      <label for="tel">電話番号<span class="req">必須</span></label>
-      <input type="tel" id="tel" name="電話番号" required placeholder="090-1234-5678" autocomplete="tel">
-
-      <label for="email">メールアドレス<span class="req">必須</span></label>
-      <input type="email" id="email" name="email" required placeholder="example@xxx.jp" autocomplete="email">
-      <div class="note">※会場のご案内・ZOOMのURLはこちらにお送りします。</div>
-
       <button class="btn" type="submit" id="submit-btn">この内容で申し込む</button>
-      <div class="note">送信後、自動返信メールが届きます。届かない場合は迷惑メールフォルダをご確認ください。<br>参加費は当日会場でお支払い、ZOOMの方はご案内メールにてお支払い方法をお伝えします。</div>
+      <div class="note">送信後に表示される画面から、LINEの友だち追加をお願いします。<br>会場のご案内・ZOOMのURL・お支払い方法は、LINEでお送りします。</div>
     </form>
-    <a class="lineok" href="https://lin.ee/Va9z4pn" target="_blank" rel="noopener">LINEでのお申込みもOKです<small>「東京セミナー参加希望」と会社名・お名前を送ってください</small></a>
-    <div class="tel">お電話でのお申込み・お問い合わせ<br><a href="tel:0678788167">06-7878-8167</a><br>担当：フジモリ（平日9:00〜18:00）</div>
+    <a class="lineok" href="https://lin.ee/Va9z4pn" target="_blank" rel="noopener">LINEから直接のお申込みもOKです<small>「東京セミナー参加希望」と会社名・お名前を送ってください</small></a>
   </div>
 
 </div>
 <script>
+  // スクロールでカードをふわっと表示
+  (function(){
+    var cards=document.querySelectorAll('.card');
+    if(!('IntersectionObserver' in window))return;
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});},{threshold:.12});
+    cards.forEach(function(c){c.classList.add('reveal');io.observe(c);});
+  })();
   // 二重送信を防ぐ
   document.getElementById('seminar-form').addEventListener('submit',function(){
     var b=document.getElementById('submit-btn');b.disabled=true;b.textContent='送信しています…';

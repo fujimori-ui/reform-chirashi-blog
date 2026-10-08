@@ -23,6 +23,9 @@
   .note{background:var(--soft);border-radius:8px;padding:12px 14px;font-size:14px;color:var(--muted)}
   .btn{display:block;text-align:center;margin-top:20px;padding:14px;border-radius:10px;background:var(--navy);color:#fff;font-weight:900;text-decoration:none}
   .line{display:block;text-align:center;margin-top:12px;padding:12px;border:0;border-radius:10px;background:#06c755;color:#fff;font-weight:700;text-decoration:none}
+  .line.big{font-size:19px;font-weight:900;padding:16px;margin-top:16px;animation:pulse 2.2s ease-out infinite}
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(6,199,85,.5)}60%{box-shadow:0 0 0 12px rgba(6,199,85,0)}}
+  @media (prefers-reduced-motion:reduce){.line.big{animation:none}}
   .tel{text-align:center;font-size:14px;color:var(--muted);margin-top:24px}
   .tel a{color:var(--navy);font-weight:900;font-size:20px;text-decoration:none}
 </style>
@@ -34,13 +37,12 @@
     <h1>お申込み<br>ありがとうございました</h1>
   </div>
   <div class="card">
-    <p>東京セミナー「今、1人リフォーム店が儲かる！」のお申込みを受け付けました。</p>
-    <p>日程・会場のご案内（ZOOMの方は参加用URL）を、担当フジモリよりメールでお送りします。</p>
-    <p class="note">確認メールが届かない場合は、迷惑メールフォルダをご確認ください。<br>2営業日たっても連絡がない場合は、お電話かLINEでお知らせください。</p>
+    <p><b>最後にもうひとつだけ、お願いがあります。</b></p>
+    <p>下のボタンからLINEの友だち追加をして、<b>「東京セミナー申込みました」</b>と送ってください。</p>
+    <p>日程・会場のご案内（ZOOMの方は参加用URL）は、LINEでお送りします。</p>
   </div>
-  <a class="line" href="https://lin.ee/Va9z4pn" target="_blank" rel="noopener">LINEでのお問い合わせはこちら</a>
+  <a class="line big" href="https://lin.ee/Va9z4pn" target="_blank" rel="noopener">LINEで友だち追加する</a>
   <a class="btn" href="https://www.jibulabo.jp/seminar202611.html">セミナーのページへ戻る</a>
-  <div class="tel">お電話でのお問い合わせ<br><a href="tel:0678788167">06-7878-8167</a><br>担当：フジモリ（平日9:00〜18:00）</div>
 </div>
 </body>
 </html>
