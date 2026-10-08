@@ -19,7 +19,7 @@
   .hero{position:relative;overflow:hidden;color:#fff;border-radius:14px;padding:16px 20px 0;margin-bottom:20px;
     background:linear-gradient(112deg,#192142 0 58%,#1f2c5c 58% 100%)}
   .hero>*{position:relative}
-  .hero-row{display:grid;grid-template-columns:1fr 47%;grid-template-areas:"chips photo" "book book";align-items:end;gap:0;margin-top:0}
+  .hero-row{display:grid;grid-template-columns:1fr 47%;grid-template-areas:"book book" "chips photo";align-items:end;gap:0;margin-top:0}
   .chips{grid-area:chips}.hero-photo{grid-area:photo}.hbook{grid-area:book}
   .hbook i{font-style:normal}.hbook br.pc{display:none}
   .chips{list-style:none;margin:0 0 14px;padding:0;display:grid;gap:6px;font-size:13.5px;font-weight:700;line-height:1.45}
@@ -32,7 +32,7 @@
   .hero-photo figcaption{position:absolute;left:6%;right:10%;bottom:0;text-align:center;font-weight:900;font-size:15px;letter-spacing:.08em;line-height:1.25;
     background:rgba(25,33,66,.9);border-top:2px solid var(--sky);padding:4px 4px 6px}
   .hero-photo figcaption small{display:block;white-space:nowrap;font-size:9px;font-weight:700;letter-spacing:.02em;color:#dbe6f5}
-  .hbook{display:flex;align-items:center;gap:12px;margin:0 -20px;padding:10px 20px;background:rgba(0,0,0,.22);border-top:1px solid rgba(255,255,255,.15);animation:up .8s .9s ease-out both}
+  .hbook{display:flex;align-items:center;gap:12px;margin:10px 0 14px;padding:8px 12px;background:rgba(0,0,0,.22);border-radius:8px;border:1px solid rgba(255,255,255,.15);animation:up .8s .9s ease-out both}
   .hbook img{width:52px;height:auto;flex:none;box-shadow:0 4px 10px rgba(0,0,0,.45)}
   .hbook span{font-size:11.5px;font-weight:700;line-height:1.5}
   .hbook b{display:block;color:var(--sky);font-size:11px;letter-spacing:.1em}
@@ -118,7 +118,7 @@
         <div class="badge">全国から<br>ZOOM<br>参加OK！</div>
         <figcaption><small>有限会社平野工務店 代表</small>平野 佑允</figcaption>
       </figure>
-      <div class="hbook"><img src="seminar202611_book.jpg" alt="平野佑允の著書"><span><b>ベストセラー著書</b><i>小さな工務店のための経営教科書<br></i>アマゾン書籍ランキング<br class="pc"> 建設業界1位獲得</span></div>
+      <div class="hbook"><img src="seminar202611_book.jpg" alt="平野佑允の著書"><span><b>ベストセラー著書</b><i>小さな工務店のための経営教科書<br></i>アマゾン書籍ランキング<br class="pc"> <span style="white-space:nowrap">建設業界1位獲得</span></span></div>
     </div>
     <div class="hero-foot">一般社団法人 5000世帯からはじめるリフォーム経営塾</div>
   </header>
