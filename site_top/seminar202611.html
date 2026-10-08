@@ -51,20 +51,37 @@
   h1 .red{color:var(--sky);white-space:nowrap}
   .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;margin-bottom:20px}
   h2{font-size:18px;font-weight:900;margin:0 0 12px;padding-left:10px;border-left:5px solid var(--accent);line-height:1.4}
-  dl{margin:0;display:grid;grid-template-columns:6em 1fr;gap:8px 12px}
-  dt{font-weight:700;color:var(--muted)}
-  dd{margin:0}
+  dl{margin:0;display:grid;grid-template-columns:5.5em 1fr;gap:12px 12px;align-items:start}
+  dt{font-weight:900;color:var(--navy);background:var(--soft);border-radius:6px;text-align:center;padding:2px 4px;font-size:14px;line-height:1.7;margin-top:2px}
+  dd{margin:0;line-height:1.75}
+  dd small{display:block;font-size:13px;color:var(--muted);line-height:1.6}
+  .ul{font-weight:700;color:var(--navy);padding-bottom:3px;background:linear-gradient(var(--sky),var(--sky)) no-repeat 0 100%/0% 4px;transition:background-size .9s cubic-bezier(.2,.7,.2,1)}
+  .card.on .ul{background-size:100% 4px}
+  dd:nth-of-type(1) .ul{transition-delay:.2s}dd:nth-of-type(2) .ul{transition-delay:.45s}dd:nth-of-type(3) .ul{transition-delay:.7s}
+  dd:nth-of-type(4) .ul{transition-delay:.95s}dd:nth-of-type(5) .ul{transition-delay:1.2s}dd:nth-of-type(6) .ul{transition-delay:1.45s}
   .zoom{background:var(--soft);border:1px dashed var(--accent);border-radius:8px;padding:10px 14px;font-weight:700;margin-top:14px}
   ul.check{list-style:none;padding:0;margin:0}
   ul.fit{list-style:none;padding:0;margin:0;display:grid;gap:8px}
   ul.fit li{position:relative;background:var(--soft);border-radius:8px;padding:10px 12px 10px 44px;font-size:15px;line-height:1.55}
   ul.fit li::before{content:"✓";position:absolute;left:12px;top:50%;transform:translateY(-50%);width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-size:13px;font-weight:900;display:flex;align-items:center;justify-content:center}
   ul.fit b{color:var(--navy);font-weight:900;background:linear-gradient(transparent 62%,rgba(240,131,0,.28) 62%)}
-  .naiyo,.tokuten{margin-top:14px;border-radius:8px;padding:12px 14px;font-size:15px;line-height:1.6}
-  .naiyo{border:2px solid var(--navy);font-weight:700}
-  .tokuten{background:#fff4e6;border:2px solid #f08300}
-  .naiyo span,.tokuten span{display:inline-block;color:#fff;font-size:12px;font-weight:900;padding:1px 10px;border-radius:999px;margin-right:8px;vertical-align:1px}
-  .naiyo span{background:var(--navy)}.tokuten span{background:#f08300}
+  .naiyo,.tokuten{margin-top:14px;border-radius:10px;padding:14px;font-size:15px;line-height:1.6}
+  .naiyo{border:2px solid var(--navy);background:#fff}
+  .nhead,.thead{font-weight:900;color:var(--navy);line-height:1.5}
+  .nhead span,.thead span{display:inline-block;color:#fff;font-size:12px;font-weight:900;padding:2px 12px;border-radius:999px;margin-right:8px;vertical-align:2px}
+  .nhead span{background:var(--navy)}
+  .nlist{list-style:none;padding:0;margin:10px 0 0;display:flex;flex-wrap:wrap;gap:8px}
+  .nlist li{background:var(--navy);color:#fff;font-weight:900;font-size:15px;padding:7px 16px;border-radius:999px;letter-spacing:.02em}
+  .tokuten{background:linear-gradient(135deg,#fff7ec,#fff1dc);border:2px solid #f08300;position:relative}
+  .thead span{background:#f08300}
+  .tbody{display:flex;align-items:center;gap:14px;margin-top:12px}
+  .tbody img{flex:none;width:118px;background:#fff;border:1px solid #e3d5c3;border-radius:4px;box-shadow:0 8px 18px rgba(0,0,0,.22);transform:rotate(-4deg)}
+  .tbody p{margin:0}
+  .tbody .t1{font-weight:700;line-height:1.55}
+  .tbody .t1 b{color:#d9530b;font-weight:900;background:linear-gradient(transparent 62%,rgba(240,131,0,.28) 62%)}
+  .tbody .t2{margin-top:8px;font-weight:700;color:var(--navy);background:#fff;border-radius:999px;display:inline-block;padding:3px 12px;font-size:14px}
+  .tokuten br.pc{display:none}
+  @media (min-width:560px){.tbody img{width:160px}.tokuten br.pc{display:inline}.nlist li{font-size:16px}}
 
   ul.learn{list-style:none;padding:0;margin:0;display:grid;gap:8px}
   ul.learn li{display:flex;align-items:center;gap:12px;background:var(--soft);border-radius:8px;padding:10px 14px;font-weight:700}
@@ -143,12 +160,12 @@
   <div class="card">
     <h2>開催概要</h2>
     <dl>
-      <dt>日時</dt><dd>2026年11月中旬（日程はお申込みの方にご案内します）<br>〈講演〉14:00〜15:00 〈相談会〉15:00〜15:30</dd>
-      <dt>会場</dt><dd>東京駅近く<br><small>※詳しい場所はお申込みの方にご案内します</small></dd>
-      <dt>参加費</dt><dd>1名様 3,000円（税込）</dd>
-      <dt>定員</dt><dd>10名様（先着順・定員になり次第締切）</dd>
-      <dt>締切</dt><dd>定員（10名様）になり次第締切</dd>
-      <dt>主催</dt><dd>一般社団法人 5000世帯からはじめるリフォーム経営塾</dd>
+      <dt>日時</dt><dd><span class="ul">2026年11月中旬</span><small>（日程はお申込みの方にご案内します）</small><span class="ul">〈講演〉14:00〜15:00 〈相談会〉15:00〜15:30</span></dd>
+      <dt>会場</dt><dd><span class="ul">東京駅近く</span><br><small>※詳しい場所はお申込みの方にご案内します</small></dd>
+      <dt>参加費</dt><dd><span class="ul">1名様 3,000円（税込）</span></dd>
+      <dt>定員</dt><dd><span class="ul">10名様（先着順・定員になり次第締切）</span></dd>
+      <dt>締切</dt><dd><span class="ul">定員（10名様）になり次第締切</span></dd>
+      <dt>主催</dt><dd><span class="ul">一般社団法人 5000世帯からはじめるリフォーム経営塾</span></dd>
     </dl>
     <div class="zoom">💻 遠方の方は全国どこからでもZOOMでご参加いただけます。参加用URLはお申込み後にLINEでお送りします。</div>
   </div>
@@ -165,8 +182,20 @@
       <li><b>二代目</b>さん・<b>引き継ぎ</b>を考える先代社長</li>
       <li><b>独立</b>して間もない</li>
     </ul>
-    <div class="naiyo"><span>内容</span>地域密着の少人数リフォーム工務店のための<br>集客方法・効率的な働き方・必要なマインド</div>
-    <div class="tokuten"><span>特典</span>毎回30件以上の反響が出ている<b>実際のチラシと会社概要</b>をプレゼント！ お悩み相談も実施します。</div>
+    <div class="naiyo">
+      <div class="nhead"><span>セミナー内容</span>地域密着の少人数リフォーム工務店のための</div>
+      <ul class="nlist"><li>集客方法</li><li>効率的な働き方</li><li>必要なマインド</li></ul>
+    </div>
+    <div class="tokuten">
+      <div class="thead"><span>参加特典</span>🎁 ご参加の方全員にプレゼント</div>
+      <div class="tbody">
+        <img src="seminar202611_chirashi.jpg" alt="毎回30件以上の反響が出ている実際のチラシ">
+        <div>
+          <p class="t1">毎回<b>30件以上の反響</b>が出ている<br class="pc"><b>実際のチラシ</b>と<b>会社概要</b>をプレゼント！</p>
+          <p class="t2">💬 お悩み相談も実施します。</p>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="card">
