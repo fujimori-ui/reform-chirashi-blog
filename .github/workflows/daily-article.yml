@@ -59,3 +59,23 @@ jobs:
     if: ${{ github.event.inputs.dry_run != 'true' }}
     uses: ./.github/workflows/deploy.yml
     secrets: inherit
+
+  # ブログが公開されたら、新しい記事を株式会社JibuLaboのマイビジネスにも投稿する(2026-11-14追加)
+  # 失敗してもブログ側には影響しない。止めたい時はこの gbp のかたまりを消す。
+  gbp:
+    needs: deploy
+    if: ${{ github.event.inputs.dry_run != 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: 新しい記事をマイビジネスへ投稿する
+        env:
+          GBP_CLIENT_ID: ${{ secrets.GBP_CLIENT_ID }}
+          GBP_CLIENT_SECRET: ${{ secrets.GBP_CLIENT_SECRET }}
+          GBP_REFRESH_TOKEN: ${{ secrets.GBP_REFRESH_TOKEN }}
+        run: python jibulabo_gbp.py
