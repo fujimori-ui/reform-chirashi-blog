@@ -1,0 +1,32 @@
+name: upload-5000reform
+
+# 5000reform.jp のトップページ(site_5000reform/ 直下のファイル)を
+# エックスサーバー /5000reform.jp/public_html へアップロードする。
+# 公開サイトを書き換えるので自動起動はしない。手動実行(workflow_dispatch)のみ。
+# 画像(img/)はアップしない(サーバー上の既存画像をそのまま使う)。
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: upload-5000reform
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: エックスサーバーへアップロードする
+        env:
+          FTP_HOST: sv17104.xserver.jp
+          FTP_USER: jibulabo2026
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_TARGET_DIR: /5000reform.jp/public_html
+          LOCAL_DIR: site_5000reform
+        run: python upload_ai.py
