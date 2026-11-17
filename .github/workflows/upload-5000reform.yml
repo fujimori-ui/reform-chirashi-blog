@@ -3,7 +3,7 @@ name: upload-5000reform
 # 5000reform.jp のトップページ(site_5000reform/ 直下のファイル)を
 # エックスサーバー /5000reform.jp/public_html へアップロードする。
 # 公開サイトを書き換えるので自動起動はしない。手動実行(workflow_dispatch)のみ。
-# 画像(img/)はアップしない(サーバー上の既存画像をそのまま使う)。
+# 画像は site_5000reform/img/ に置いたものだけ public_html/img/ へ上書きアップする。
 on:
   workflow_dispatch:
 
@@ -29,4 +29,14 @@ jobs:
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
           FTP_TARGET_DIR: /5000reform.jp/public_html
           LOCAL_DIR: site_5000reform
+        run: python upload_ai.py
+
+      - name: 画像フォルダ(site_5000reform/img)をアップロードする
+        if: ${{ hashFiles('site_5000reform/img/*') != '' }}
+        env:
+          FTP_HOST: sv17104.xserver.jp
+          FTP_USER: jibulabo2026
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_TARGET_DIR: /5000reform.jp/public_html/img
+          LOCAL_DIR: site_5000reform/img
         run: python upload_ai.py
