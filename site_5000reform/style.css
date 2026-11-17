@@ -315,3 +315,33 @@ button.btn{border:0;cursor:pointer;background:var(--ink);color:var(--paper);just
 .formbox h3{font-size:22px;font-weight:900}
 .news li div{display:grid;grid-template-columns:7em 1fr;gap:16px;padding:16px 4px;border-bottom:1px solid var(--line)}
 html{scroll-behavior:smooth}
+
+/* ==== メリハリ(2026-11-17): セクションごとに背景を交互に変え、見出しラベルを目立つ帯にする ==== */
+main{counter-reset:sec}
+section{counter-increment:sec}
+.news{counter-increment:none}
+section .eyebrow{display:inline-block;justify-self:start;background:var(--navy);color:#fff;font-size:13px;padding:6px 14px;border-radius:2px;letter-spacing:.12em;line-height:1.3}
+section:not(.news) .eyebrow::before{content:counter(sec,decimal-leading-zero);font-family:var(--display);font-weight:600;font-size:15px;margin-right:10px;padding-right:10px;border-right:1px solid rgba(255,255,255,.4)}
+.semi .eyebrow{background:#ffd91a;color:var(--navy)}
+.semi .eyebrow::before{border-right-color:rgba(28,32,67,.3)}
+.head{gap:12px;margin-bottom:38px}
+.head h2{font-size:clamp(26px,3.6vw,38px)}
+.news .in{padding-block:44px 48px}
+.news{border-bottom:1px solid var(--line)}
+.movie{background:#fff}
+.semi{background:var(--wash)}
+.semi .pts li{background:#fff;border:1px solid var(--line)}
+.worry{background:#fff}
+.start{background:#fff7d6}
+.start .bk{border-color:#f1e3a6;border-left-color:var(--navy)}
+.start .eyebrow{margin-bottom:10px}
+#menu{background:#fff}
+.chira{background:var(--wash)}
+.voice{background:#fff}
+.voice li{background:var(--wash)}
+.people{background:var(--wash)}
+.contact{background:#fff;border-top:4px solid var(--navy)}
+@media (max-width:760px){
+  section .eyebrow{font-size:12px;padding:5px 12px}
+  .head h2{font-size:clamp(24px,6.4vw,30px)}
+}
